@@ -46,6 +46,7 @@ public class Conversation extends AbstractEntity implements Blockable, Comparabl
 	public static final String CREATED = "created";
 	public static final String MODE = "mode";
 	public static final String ATTRIBUTES = "attributes";
+	public static final String MESSAGE_DELETION_PERIOD = "message_deletion_period";
 
 	public static final String ATTRIBUTE_MUTED_TILL = "muted_till";
 	public static final String ATTRIBUTE_ALWAYS_NOTIFY = "always_notify";
@@ -79,18 +80,19 @@ public class Conversation extends AbstractEntity implements Blockable, Comparabl
 	private ChatState mOutgoingChatState = Config.DEFAULT_CHATSTATE;
 	private ChatState mIncomingChatState = Config.DEFAULT_CHATSTATE;
 	private String mFirstMamReference = null;
+	private int messageDeletionPeriod;
 
 	public Conversation(final String name, final Account account, final Jid contactJid,
 	                    final int mode) {
 		this(java.util.UUID.randomUUID().toString(), name, null, account
 						.getUuid(), contactJid, System.currentTimeMillis(),
-				STATUS_AVAILABLE, mode, "");
+				STATUS_AVAILABLE, mode, "", 86400);
 		this.account = account;
 	}
 
 	public Conversation(final String uuid, final String name, final String contactUuid,
 	                    final String accountUuid, final Jid contactJid, final long created, final int status,
-	                    final int mode, final String attributes) {
+						final int mode, final String attributes, final int messageDeletionPeriod) {
 		this.uuid = uuid;
 		this.name = name;
 		this.contactUuid = contactUuid;
@@ -99,6 +101,7 @@ public class Conversation extends AbstractEntity implements Blockable, Comparabl
 		this.created = created;
 		this.status = status;
 		this.mode = mode;
+		this.messageDeletionPeriod = messageDeletionPeriod;
 		try {
 			this.attributes = new JSONObject(attributes == null ? "" : attributes);
 		} catch (JSONException e) {
@@ -115,7 +118,8 @@ public class Conversation extends AbstractEntity implements Blockable, Comparabl
 				cursor.getLong(cursor.getColumnIndex(CREATED)),
 				cursor.getInt(cursor.getColumnIndex(STATUS)),
 				cursor.getInt(cursor.getColumnIndex(MODE)),
-				cursor.getString(cursor.getColumnIndex(ATTRIBUTES)));
+				cursor.getString(cursor.getColumnIndex(ATTRIBUTES)),
+				cursor.getInt(cursor.getColumnIndex(MESSAGE_DELETION_PERIOD)));
 	}
 
 	public boolean hasMessagesLeftOnServer() {
@@ -575,6 +579,7 @@ public class Conversation extends AbstractEntity implements Blockable, Comparabl
 		values.put(CREATED, created);
 		values.put(STATUS, status);
 		values.put(MODE, mode);
+		values.put(MESSAGE_DELETION_PERIOD, messageDeletionPeriod);
 		synchronized (this.attributes) {
 			values.put(ATTRIBUTES, attributes.toString());
 		}
@@ -996,6 +1001,14 @@ public class Conversation extends AbstractEntity implements Blockable, Comparabl
 			}
 		}
 		return 0;
+	}
+
+	public int getMessageDeletionPeriod() {
+		return this.messageDeletionPeriod;
+	}
+
+	public void setMessageDeletionPeriod(int periodSec) {
+		this.messageDeletionPeriod = periodSec;
 	}
 
 	@Override

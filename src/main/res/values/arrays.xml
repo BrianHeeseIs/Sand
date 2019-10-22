@@ -87,10 +87,11 @@
 	</string-array>
 	<integer-array name="automatic_message_deletion_values">
 		<item>0</item>
+		<item>60</item>
+		<item>3600</item>
 		<item>86400</item>
 		<item>604800</item>
 		<item>2592000</item>
-		<item>15811200</item>
 	</integer-array>
 	<string-array name="omemo_setting_entry_values">
 		<item>always</item>

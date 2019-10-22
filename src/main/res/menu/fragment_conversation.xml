@@ -82,6 +82,11 @@
         app:showAsAction="never"
         android:title="@string/action_clear_history"/>
     <item
+        android:id="@+id/action_set_deletion_period"
+        android:orderInCategory="55"
+        app:showAsAction="never"
+        android:title="@string/action_set_deletion_period"/>
+    <item
         android:id="@+id/action_archive"
         android:orderInCategory="60"
         app:showAsAction="never"

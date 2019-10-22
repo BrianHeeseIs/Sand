@@ -634,7 +634,7 @@ public class MessageParser extends AbstractParser implements OnMessagePacketRece
                 }
             }
 
-            long deletionDate = mXmppConnectionService.getAutomaticMessageDeletionDate();
+            long deletionDate = mXmppConnectionService.getAutomaticMessageDeletionDate(conversation);
             if (deletionDate != 0 && message.getTimeSent() < deletionDate) {
                 Log.d(Config.LOGTAG, account.getJid().asBareJid() + ": skipping message from " + message.getCounterpart().toString() + " because it was sent prior to our deletion date");
                 return;
