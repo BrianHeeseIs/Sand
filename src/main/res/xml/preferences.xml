@@ -15,31 +15,6 @@
                 android:targetPackage="com.huawei.systemmanager" />
         </PreferenceScreen>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_privacy">
-        <ListPreference
-            android:defaultValue="@string/omemo_setting_default"
-            android:entries="@array/omemo_setting_entries"
-            android:entryValues="@array/omemo_setting_entry_values"
-            android:key="omemo"
-            android:summary="@string/pref_omemo_setting_summary_default_on"
-            android:title="@string/pref_omemo_setting" />
-        <CheckBoxPreference
-            android:defaultValue="@bool/confirm_messages"
-            android:key="confirm_messages"
-            android:summary="@string/pref_confirm_messages_summary"
-            android:title="@string/pref_confirm_messages" />
-
-        <CheckBoxPreference
-            android:defaultValue="@bool/chat_states"
-            android:key="chat_states"
-            android:summary="@string/pref_chat_states_summary"
-            android:title="@string/pref_chat_states" />
-        <CheckBoxPreference
-            android:defaultValue="@bool/last_activity"
-            android:key="last_activity"
-            android:summary="@string/pref_broadcast_last_activity_summary"
-            android:title="@string/pref_broadcast_last_activity" />
-    </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_notification_settings"
         android:key="notification_category">
@@ -56,11 +31,6 @@
                     android:value="messages" />
             </intent>
         </PreferenceScreen>
-        <CheckBoxPreference
-            android:defaultValue="@bool/notifications_from_strangers"
-            android:key="notifications_from_strangers"
-            android:summary="@string/pref_notifications_from_strangers_summary"
-            android:title="@string/pref_notifications_from_strangers" />
         <CheckBoxPreference
             android:defaultValue="@bool/headsup_notifications"
             android:key="notification_headsup"
@@ -158,11 +128,6 @@
             android:key="theme"
             android:summary="@string/pref_theme_options_summary"
             android:title="@string/pref_theme_options" />
-        <CheckBoxPreference
-            android:defaultValue="@bool/use_green_background"
-            android:key="use_green_background"
-            android:summary="@string/pref_use_green_background_summary"
-            android:title="@string/pref_use_green_background" />
         <ListPreference
             android:defaultValue="@string/default_font_size"
             android:entries="@array/font_size_entries"
@@ -170,11 +135,6 @@
             android:key="font_size"
             android:summary="@string/pref_font_size_summary"
             android:title="@string/pref_font_size" />
-        <CheckBoxPreference
-            android:defaultValue="@bool/send_button_status"
-            android:key="send_button_status"
-            android:summary="@string/pref_use_send_button_to_indicate_status_summary"
-            android:title="@string/pref_use_send_button_to_indicate_status" />
         <ListPreference
             android:defaultValue="@string/quick_action"
             android:dialogTitle="@string/choose_quick_action"
@@ -212,11 +172,6 @@
                     android:key="btbv"
                     android:summary="@string/pref_blind_trust_before_verification_summary"
                     android:title="@string/pref_blind_trust_before_verification" />
-                <ListPreference
-                    android:defaultValue="@integer/automatic_message_deletion"
-                    android:key="automatic_message_deletion"
-                    android:summary="@string/pref_automatically_delete_messages_description"
-                    android:title="@string/pref_automatically_delete_messages" />
                 <CheckBoxPreference
                     android:defaultValue="@bool/dont_trust_system_cas"
                     android:key="dont_trust_system_cas"
@@ -231,11 +186,6 @@
                     android:key="remove_trusted_certificates"
                     android:summary="@string/pref_remove_trusted_certificates_summary"
                     android:title="@string/pref_remove_trusted_certificates_title" />
-                <CheckBoxPreference
-                    android:defaultValue="@bool/allow_message_correction"
-                    android:key="allow_message_correction"
-                    android:summary="@string/pref_allow_message_correction_summary"
-                    android:title="@string/pref_allow_message_correction" />
                 <Preference
                     android:key="clean_cache"
                     android:summary="@string/pref_clean_cache_summary"
@@ -252,11 +202,6 @@
             <PreferenceCategory
                 android:key="connection_options"
                 android:title="@string/pref_connection_options">
-                <CheckBoxPreference
-                    android:defaultValue="@bool/use_tor"
-                    android:key="use_tor"
-                    android:summary="@string/pref_use_tor_summary"
-                    android:title="@string/pref_use_tor" />
                 <CheckBoxPreference
                     android:defaultValue="@bool/show_connection_options"
                     android:key="show_connection_options"
@@ -279,11 +224,6 @@
                     android:key="display_enter_key"
                     android:summary="@string/pref_display_enter_key_summary"
                     android:title="@string/pref_display_enter_key" />
-                <CheckBoxPreference
-                    android:defaultValue="@bool/scroll_to_bottom"
-                    android:key="scroll_to_bottom"
-                    android:summary="@string/pref_scroll_to_bottom_summary"
-                    android:title="@string/pref_scroll_to_bottom" />
             </PreferenceCategory>
             <PreferenceCategory android:title="@string/pref_presence_settings">
                 <CheckBoxPreference
@@ -314,21 +254,6 @@
             <PreferenceCategory
                 android:key="other_expert_category"
                 android:title="@string/pref_expert_options_other">
-                <CheckBoxPreference
-                    android:defaultValue="@bool/autojoin"
-                    android:key="autojoin"
-                    android:summary="@string/pref_autojoin_summary"
-                    android:title="@string/pref_autojoin" />
-                <CheckBoxPreference
-                    android:defaultValue="@bool/indicate_received"
-                    android:key="indicate_received"
-                    android:summary="@string/pref_use_indicate_received_summary"
-                    android:title="@string/pref_use_indicate_received" />
-                <CheckBoxPreference
-                    android:defaultValue="@bool/enable_foreground_service"
-                    android:key="enable_foreground_service"
-                    android:summary="@string/pref_keep_foreground_service_summary"
-                    android:title="@string/pref_keep_foreground_service" />
                 <Preference
                     android:key="create_backup"
                     android:summary="@string/pref_create_backup_summary"
