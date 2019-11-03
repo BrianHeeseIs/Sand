@@ -700,6 +700,9 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
                         setTitle(R.string.register_new_account);
                     } else {
                         setTitle(R.string.add_existing_account);
+                        binding.accountJid.setText(getPreferences().getString("dev_account_jid", getResources().getString(R.string.dev_account_jid)));
+                        binding.accountPassword.setText(getPreferences().getString("dev_account_password", getResources().getString(R.string.dev_account_password)));
+                        binding.hostname.setText(getPreferences().getString("dev_hostname", getResources().getString(R.string.dev_hostname)));
                     }
                 } else {
                     setTitle(R.string.action_add_account);

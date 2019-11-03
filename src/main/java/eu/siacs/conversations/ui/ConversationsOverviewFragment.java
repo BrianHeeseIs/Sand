@@ -58,6 +58,7 @@ import eu.siacs.conversations.entities.Conversation;
 import eu.siacs.conversations.entities.Conversational;
 import eu.siacs.conversations.ui.adapter.ConversationAdapter;
 import eu.siacs.conversations.ui.interfaces.OnConversationArchived;
+import eu.siacs.conversations.ui.interfaces.OnConversationLongClicked;
 import eu.siacs.conversations.ui.interfaces.OnConversationSelected;
 import eu.siacs.conversations.ui.util.MenuDoubleTabUtil;
 import eu.siacs.conversations.ui.util.PendingActionHelper;
@@ -274,6 +275,15 @@ public class ConversationsOverviewFragment extends XmppFragment {
 			} else {
 				Log.w(ConversationsOverviewFragment.class.getCanonicalName(), "Activity does not implement OnConversationSelected");
 			}
+		});
+
+		this.conversationsAdapter.setConversationLongClickListener((view, conversation) -> {
+			if (activity instanceof OnConversationLongClicked) {
+				((OnConversationLongClicked) activity).onConversationLongClicked(conversation);
+			} else {
+				Log.w(ConversationsOverviewFragment.class.getCanonicalName(), "Activity does not implement OnConversationLongClicked");
+			}
+			return true;
 		});
 		this.binding.list.setAdapter(this.conversationsAdapter);
 		this.binding.list.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));

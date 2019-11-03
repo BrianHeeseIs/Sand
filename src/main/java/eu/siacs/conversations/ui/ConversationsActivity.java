@@ -70,6 +70,7 @@ import eu.siacs.conversations.entities.Conversation;
 import eu.siacs.conversations.services.XmppConnectionService;
 import eu.siacs.conversations.ui.interfaces.OnBackendConnected;
 import eu.siacs.conversations.ui.interfaces.OnConversationArchived;
+import eu.siacs.conversations.ui.interfaces.OnConversationLongClicked;
 import eu.siacs.conversations.ui.interfaces.OnConversationRead;
 import eu.siacs.conversations.ui.interfaces.OnConversationSelected;
 import eu.siacs.conversations.ui.interfaces.OnConversationsListItemUpdated;
@@ -88,7 +89,7 @@ import rocks.xmpp.addr.Jid;
 
 import static eu.siacs.conversations.ui.ConversationFragment.REQUEST_DECRYPT_PGP;
 
-public class ConversationsActivity extends XmppActivity implements OnConversationSelected, OnConversationArchived, OnConversationsListItemUpdated, OnConversationRead, XmppConnectionService.OnAccountUpdate, XmppConnectionService.OnConversationUpdate, XmppConnectionService.OnRosterUpdate, OnUpdateBlocklist, XmppConnectionService.OnShowErrorToast, XmppConnectionService.OnAffiliationChanged {
+public class ConversationsActivity extends XmppActivity implements OnConversationLongClicked, OnConversationSelected, OnConversationArchived, OnConversationsListItemUpdated, OnConversationRead, XmppConnectionService.OnAccountUpdate, XmppConnectionService.OnConversationUpdate, XmppConnectionService.OnRosterUpdate, OnUpdateBlocklist, XmppConnectionService.OnShowErrorToast, XmppConnectionService.OnAffiliationChanged {
 
     public static final String ACTION_VIEW_CONVERSATION = "eu.siacs.conversations.action.VIEW";
     public static final String EXTRA_CONVERSATION = "conversationUuid";
@@ -458,6 +459,39 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         }
     }
 
+    private void openWipeConversations(Conversation conversation, Bundle extras) {
+        ConversationFragment conversationFragment = (ConversationFragment) getFragmentManager().findFragmentById(R.id.secondary_fragment);
+        final boolean mainNeedsRefresh;
+        if (conversationFragment == null) {
+            mainNeedsRefresh = false;
+            Fragment mainFragment = getFragmentManager().findFragmentById(R.id.main_fragment);
+            if (mainFragment instanceof ConversationFragment) {
+                conversationFragment = (ConversationFragment) mainFragment;
+            } else {
+                conversationFragment = new ConversationFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_fragment, conversationFragment);
+                fragmentTransaction.addToBackStack(null);
+                try {
+                    fragmentTransaction.commit();
+                } catch (IllegalStateException e) {
+                    Log.w(Config.LOGTAG, "sate loss while opening conversation", e);
+                    //allowing state loss is probably fine since view intents et all are already stored and a click can probably be 'ignored'
+                    return;
+                }
+            }
+        } else {
+            mainNeedsRefresh = true;
+        }
+        conversationFragment.reInit(conversation, extras == null ? new Bundle() : extras);
+        if (mainNeedsRefresh) {
+            refreshFragment(R.id.main_fragment);
+        } else {
+            invalidateActionBarTitle();
+        }
+    }
+
+
     public boolean onXmppUriClicked(Uri uri) {
         XmppUri xmppUri = new XmppUri(uri);
         if (xmppUri.isJidValid() && !xmppUri.hasFingerprints()) {
@@ -669,5 +703,13 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
     @Override
     public void onShowErrorToast(int resId) {
         runOnUiThread(() -> Toast.makeText(this, resId, Toast.LENGTH_SHORT).show());
+    }
+
+    @Override
+    public void onConversationLongClicked(Conversation conversation) {
+        Log.w(ConversationsActivity.class.getCanonicalName(), "-----------()-()--------->onConversationLongClicked");
+        Intent intent = new Intent(this, WipeConversationsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
     }
 }
