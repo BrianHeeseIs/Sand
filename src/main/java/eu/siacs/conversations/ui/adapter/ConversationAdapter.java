@@ -187,7 +187,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
         viewHolder.binding.conversationLastupdate.setText(UIHelper.readableTimeDifference(activity, timestamp));
         AvatarWorkerTask.loadAvatar(conversation, viewHolder.binding.conversationImage, R.dimen.avatar_on_conversation_overview);
         viewHolder.itemView.setOnClickListener(v -> listener.onConversationClick(v, conversation));
-        viewHolder.itemView.setOnLongClickListener(v -> longClickListener.onConversationLongClick(v, conversation));
+        viewHolder.itemView.setOnLongClickListener(v -> longClickListener.onConversationLongClick(viewHolder, conversation));
     }
 
     @Override
@@ -219,7 +219,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
     }
 
     public interface OnConversationLongClickListener {
-        boolean onConversationLongClick(View view, Conversation conversation);
+        boolean onConversationLongClick(RecyclerView.ViewHolder view, Conversation conversation);
     }
 
     static class ConversationViewHolder extends RecyclerView.ViewHolder {

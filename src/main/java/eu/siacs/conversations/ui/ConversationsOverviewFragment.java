@@ -34,6 +34,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -73,7 +74,6 @@ import static android.support.v7.widget.helper.ItemTouchHelper.RIGHT;
 public class ConversationsOverviewFragment extends XmppFragment {
 
 	private static final String STATE_SCROLL_POSITION = ConversationsOverviewFragment.class.getName()+".scroll_state";
-
 	private final List<Conversation> conversations = new ArrayList<>();
 	private final PendingItem<Conversation> swipedConversation = new PendingItem<>();
 	private final PendingItem<ScrollState> pendingScrollState = new PendingItem<>();
@@ -277,9 +277,9 @@ public class ConversationsOverviewFragment extends XmppFragment {
 			}
 		});
 
-		this.conversationsAdapter.setConversationLongClickListener((view, conversation) -> {
+		this.conversationsAdapter.setConversationLongClickListener((viewHolder, conversation) -> {
 			if (activity instanceof OnConversationLongClicked) {
-				((OnConversationLongClicked) activity).onConversationLongClicked(conversation);
+				((OnConversationLongClicked) activity).onConversationLongClicked(viewHolder, conversation);
 			} else {
 				Log.w(ConversationsOverviewFragment.class.getCanonicalName(), "Activity does not implement OnConversationLongClicked");
 			}
@@ -379,5 +379,9 @@ public class ConversationsOverviewFragment extends XmppFragment {
 			LinearLayoutManager layoutManager = (LinearLayoutManager) binding.list.getLayoutManager();
 			layoutManager.scrollToPositionWithOffset(scrollPosition.position, scrollPosition.offset);
 		}
+	}
+
+	public List<Conversation> getConversations() {
+		return conversations;
 	}
 }

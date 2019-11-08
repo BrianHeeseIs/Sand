@@ -30,8 +30,10 @@
 package eu.siacs.conversations.ui.interfaces;
 
 
+import android.support.v7.widget.RecyclerView;
+
 import eu.siacs.conversations.entities.Conversation;
 
 public interface OnConversationLongClicked {
-	void onConversationLongClicked(Conversation conversation);
+	void onConversationLongClicked(RecyclerView.ViewHolder viewHolder, Conversation conversation);
 }

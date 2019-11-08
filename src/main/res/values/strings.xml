@@ -312,6 +312,7 @@
     <string name="web_address">web address</string>
     <string name="scan_qr_code">Scan 2D Barcode</string>
     <string name="show_qr_code">Show 2D Barcode</string>
+    <string name="select_all">Select All</string>
     <string name="show_block_list">Show block list</string>
     <string name="account_details">Account details</string>
     <string name="confirm">Confirm</string>
