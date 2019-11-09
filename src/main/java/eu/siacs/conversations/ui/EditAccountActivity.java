@@ -217,35 +217,8 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
                 removeErrorsOnAllBut(binding.accountJidLayout);
                 return;
             }
-            String hostname = null;
+            String hostname = Config.DOMAIN_LOCK;
             int numericPort = 5222;
-            if (mShowOptions) {
-                hostname = binding.hostname.getText().toString().replaceAll("\\s", "");
-                final String port = binding.port.getText().toString().replaceAll("\\s", "");
-                if (hostname.contains(" ")) {
-                    binding.hostnameLayout.setError(getString(R.string.not_valid_hostname));
-                    binding.hostname.requestFocus();
-                    removeErrorsOnAllBut(binding.hostnameLayout);
-                    return;
-                }
-                if (!hostname.isEmpty()) {
-                    try {
-                        numericPort = Integer.parseInt(port);
-                        if (numericPort < 0 || numericPort > 65535) {
-                            binding.portLayout.setError(getString(R.string.not_a_valid_port));
-                            removeErrorsOnAllBut(binding.portLayout);
-                            binding.port.requestFocus();
-                            return;
-                        }
-
-                    } catch (NumberFormatException e) {
-                        binding.portLayout.setError(getString(R.string.not_a_valid_port));
-                        removeErrorsOnAllBut(binding.portLayout);
-                        binding.port.requestFocus();
-                        return;
-                    }
-                }
-            }
 
             if (jid.getLocal() == null) {
                 if (mUsernameMode) {
@@ -286,8 +259,6 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
                 mAccount.setOption(Account.OPTION_REGISTER, registerNewAccount);
                 xmppConnectionService.createAccount(mAccount);
             }
-            binding.hostnameLayout.setError(null);
-            binding.portLayout.setError(null);
             if (mAccount.isEnabled()
                     && !registerNewAccount
                     && !mInitMode) {
@@ -303,7 +274,6 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
 
         @Override
         public void onTextChanged(final CharSequence s, final int start, final int before, final int count) {
-            updatePortLayout();
             updateSaveButton();
         }
 
@@ -322,9 +292,10 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
             EditText et = (EditText) view;
             if (b) {
                 int resId = mUsernameMode ? R.string.username : R.string.account_settings_example_jabber_id;
-                if (view.getId() == R.id.hostname) {
-                    resId = mUseTor ? R.string.hostname_or_onion : R.string.hostname_example;
-                }
+//                TODO
+//                if (view.getId() == R.id.hostname) {
+//                    resId = mUseTor ? R.string.hostname_or_onion : R.string.hostname_example;
+//                }
                 final int res = resId;
                 new Handler().postDelayed(() -> et.setHint(res), 200);
             } else {
@@ -478,16 +449,6 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
         }
     }
 
-    private void updatePortLayout() {
-        final String hostname = this.binding.hostname.getText().toString();
-        if (TextUtils.isEmpty(hostname)) {
-            this.binding.portLayout.setEnabled(false);
-            this.binding.portLayout.setError(null);
-        } else {
-            this.binding.portLayout.setEnabled(true);
-        }
-    }
-
     protected void updateSaveButton() {
         boolean accountInfoEdited = accountInfoEdited();
 
@@ -551,9 +512,7 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
             return false;
         }
         return jidEdited() ||
-                !this.mAccount.getPassword().equals(this.binding.accountPassword.getText().toString()) ||
-                !this.mAccount.getHostname().equals(this.binding.hostname.getText().toString()) ||
-                !String.valueOf(this.mAccount.getPort()).equals(this.binding.port.getText().toString());
+                !this.mAccount.getPassword().equals(this.binding.accountPassword.getText().toString());
     }
 
     protected boolean jidEdited() {
@@ -589,11 +548,7 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
         this.binding.accountPassword.addTextChangedListener(this.mTextWatcher);
 
         this.binding.avater.setOnClickListener(this.mAvatarClickListener);
-        this.binding.hostname.addTextChangedListener(mTextWatcher);
-        this.binding.hostname.setOnFocusChangeListener(mEditTextFocusListener);
         this.binding.clearDevices.setOnClickListener(v -> showWipePepDialog());
-        this.binding.port.setText(String.valueOf(Resolver.DEFAULT_PORT_XMPP));
-        this.binding.port.addTextChangedListener(mTextWatcher);
         this.binding.saveButton.setOnClickListener(this.mSaveButtonClickListener);
         this.binding.cancelButton.setOnClickListener(this.mCancelButtonClickListener);
         if (savedInstanceState != null && savedInstanceState.getBoolean("showMoreTable")) {
@@ -716,7 +671,6 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
         SharedPreferences preferences = getPreferences();
         mUseTor = QuickConversationsService.isConversations() && preferences.getBoolean("use_tor", getResources().getBoolean(R.bool.use_tor));
         this.mShowOptions = mUseTor || (QuickConversationsService.isConversations() && preferences.getBoolean("show_connection_options", getResources().getBoolean(R.bool.show_connection_options)));
-        this.binding.namePort.setVisibility(mShowOptions ? View.VISIBLE : View.GONE);
         if (mForceRegister != null) {
             this.binding.accountRegisterNew.setVisibility(View.GONE);
         }
@@ -798,7 +752,6 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
             processFingerprintVerification(pendingUri, false);
             pendingUri = null;
         }
-        updatePortLayout();
         updateSaveButton();
         invalidateOptionsMenu();
     }
@@ -951,12 +904,6 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
             }
             this.binding.accountPassword.getEditableText().clear();
             this.binding.accountPassword.getEditableText().append(this.mAccount.getPassword());
-            this.binding.hostname.setText("");
-            this.binding.hostname.getEditableText().append(this.mAccount.getHostname());
-            this.binding.port.setText("");
-            this.binding.port.getEditableText().append(String.valueOf(this.mAccount.getPort()));
-            this.binding.namePort.setVisibility(mShowOptions ? View.VISIBLE : View.GONE);
-
         }
 
         final boolean editable = !mAccount.isOptionSet(Account.OPTION_LOGGED_IN_SUCCESSFULLY) && QuickConversationsService.isConversations();
@@ -1127,11 +1074,7 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
             if (this.mAccount.errorStatus()) {
                 if (this.mAccount.getStatus() == Account.State.UNAUTHORIZED || this.mAccount.getStatus() == Account.State.DOWNGRADE_ATTACK) {
                     errorLayout = this.binding.accountPasswordLayout;
-                } else if (mShowOptions
-                        && this.mAccount.getStatus() == Account.State.SERVER_NOT_FOUND
-                        && this.binding.hostname.getText().length() > 0) {
-                    errorLayout = this.binding.hostnameLayout;
-                } else {
+                }  else {
                     errorLayout = this.binding.accountJidLayout;
                 }
                 errorLayout.setError(getString(this.mAccount.getStatus().getReadableId()));
@@ -1165,14 +1108,6 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
         if (this.binding.accountPasswordLayout != exception) {
             this.binding.accountPasswordLayout.setErrorEnabled(false);
             this.binding.accountPasswordLayout.setError(null);
-        }
-        if (this.binding.hostnameLayout != exception) {
-            this.binding.hostnameLayout.setErrorEnabled(false);
-            this.binding.hostnameLayout.setError(null);
-        }
-        if (this.binding.portLayout != exception) {
-            this.binding.portLayout.setErrorEnabled(false);
-            this.binding.portLayout.setError(null);
         }
     }
 
