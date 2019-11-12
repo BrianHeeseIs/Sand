@@ -42,29 +42,21 @@ import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import org.openintents.openpgp.util.OpenPgpApi;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -84,12 +76,10 @@ import eu.siacs.conversations.ui.interfaces.OnConversationLongClicked;
 import eu.siacs.conversations.ui.interfaces.OnConversationRead;
 import eu.siacs.conversations.ui.interfaces.OnConversationSelected;
 import eu.siacs.conversations.ui.interfaces.OnConversationsListItemUpdated;
-import eu.siacs.conversations.ui.service.EmojiService;
 import eu.siacs.conversations.ui.util.ActivityResult;
 import eu.siacs.conversations.ui.util.ConversationMenuConfigurator;
 import eu.siacs.conversations.ui.util.MenuDoubleTabUtil;
 import eu.siacs.conversations.ui.util.PendingItem;
-import eu.siacs.conversations.ui.util.StyledAttributes;
 import eu.siacs.conversations.utils.AccountUtils;
 import eu.siacs.conversations.utils.EmojiWrapper;
 import eu.siacs.conversations.utils.ExceptionHelper;
@@ -415,13 +405,15 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
     }
 
     @Override
-    public void onConversationSelected(Conversation conversation) {
-        if (wipeActivated) {
+    public void onConversationSelected(ConversationAdapter.ConversationViewHolder viewHolder, Conversation conversation) {
+        if (wipeActivated && viewHolder != null) {
             //change background onSelectItem by the flag and add into deletionList
-            if(deletionList.contains(conversation)){
+            if (deletionList.contains(conversation)) {
                 deletionList.remove(conversation);
-            }else {
+                setSelectionColor(viewHolder, android.R.drawable.btn_default);
+            } else {
                 deletionList.add(conversation);
+                setSelectionColor(viewHolder, Color.parseColor("#dfdfdf"));
             }
             return;
         }
@@ -431,6 +423,10 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
             return;
         }
         openConversation(conversation, null);
+    }
+
+    private void setSelectionColor(ConversationAdapter.ConversationViewHolder viewHolder, int i) {
+        viewHolder.binding.frame.setBackgroundColor(i);
     }
 
     public void clearPendingViewIntent() {
@@ -530,7 +526,7 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
 
     private void wipeSelectedConversations() {
         //delete conversations which in the deletionList
-        for (Conversation c: deletionList) {
+        for (Conversation c : deletionList) {
             xmppConnectionService.clearConversationHistory(c);
 
             //delete conversation from xmpp server instead of archive
@@ -549,8 +545,9 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
     private void selectAllConversations() {
         //add all conversations into deletion list
         Fragment fragment = getFragmentManager().findFragmentById(R.id.main_fragment);
-        if(((ConversationsOverviewFragment) fragment).getConversations().size() == deletionList.size()){
+        if (((ConversationsOverviewFragment) fragment).getConversations().size() == deletionList.size()) {
             deletionList.clear();
+            //TODO: set all item's background color with android.R.drawable.btn_default
         } else {
             this.deletionList.clear();
             this.deletionList = new HashSet<>(((ConversationsOverviewFragment) fragment).getConversations());
@@ -736,7 +733,7 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
     }
 
     @Override
-    public void onConversationLongClicked(RecyclerView.ViewHolder viewHolder, Conversation conversation) {
+    public void onConversationLongClicked(ConversationAdapter.ConversationViewHolder viewHolder, Conversation conversation) {
         Log.w(ConversationsActivity.class.getCanonicalName(), "onConversationLongClicked");
 
         //crete boolean flag
@@ -748,7 +745,9 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         //crete list with conversations which will be deleted
         deletionList.add(conversation);
 
-        //TODO: change background color and add into deletionList
+        //change background color and add into deletionList
+        setSelectionColor(viewHolder, Color.parseColor("#dfdfdf"));
+
     }
 
 

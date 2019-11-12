@@ -31,7 +31,8 @@ package eu.siacs.conversations.ui.interfaces;
 
 
 import eu.siacs.conversations.entities.Conversation;
+import eu.siacs.conversations.ui.adapter.ConversationAdapter;
 
 public interface OnConversationSelected {
-	void onConversationSelected(Conversation conversation);
+	void onConversationSelected(ConversationAdapter.ConversationViewHolder viewHolder, Conversation conversation);
 }

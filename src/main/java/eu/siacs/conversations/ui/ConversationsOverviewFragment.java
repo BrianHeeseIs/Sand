@@ -154,7 +154,7 @@ public class ConversationsOverviewFragment extends XmppFragment {
 						conversationsAdapter.insert(conversation, position);
 						if (formerlySelected) {
 							if (activity instanceof OnConversationSelected) {
-								((OnConversationSelected) activity).onConversationSelected(c);
+								((OnConversationSelected) activity).onConversationSelected(null, c);
 							}
 						}
 						LinearLayoutManager layoutManager = (LinearLayoutManager) binding.list.getLayoutManager();
@@ -269,17 +269,18 @@ public class ConversationsOverviewFragment extends XmppFragment {
 		this.binding.fab.setOnClickListener((view) -> StartConversationActivity.launch(getActivity()));
 
 		this.conversationsAdapter = new ConversationAdapter(this.activity, this.conversations);
-		this.conversationsAdapter.setConversationClickListener((view, conversation) -> {
+
+		this.conversationsAdapter.setConversationClickListener((viewHolder, conversation) -> {
 			if (activity instanceof OnConversationSelected) {
-				((OnConversationSelected) activity).onConversationSelected(conversation);
+				((OnConversationSelected) activity).onConversationSelected((ConversationAdapter.ConversationViewHolder) viewHolder, conversation);
 			} else {
-				Log.w(ConversationsOverviewFragment.class.getCanonicalName(), "Activity does not implement OnConversationSelected");
+				Log.w(ConversationsOverviewFragment.class.getCanonicalName(), "Activity does not implement OnConversationLongClicked");
 			}
 		});
 
 		this.conversationsAdapter.setConversationLongClickListener((viewHolder, conversation) -> {
 			if (activity instanceof OnConversationLongClicked) {
-				((OnConversationLongClicked) activity).onConversationLongClicked(viewHolder, conversation);
+				((OnConversationLongClicked) activity).onConversationLongClicked((ConversationAdapter.ConversationViewHolder) viewHolder, conversation);
 			} else {
 				Log.w(ConversationsOverviewFragment.class.getCanonicalName(), "Activity does not implement OnConversationLongClicked");
 			}
