@@ -544,13 +544,15 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
 
     private void selectAllConversations() {
         //add all conversations into deletion list
-        Fragment fragment = getFragmentManager().findFragmentById(R.id.main_fragment);
-        if (((ConversationsOverviewFragment) fragment).getConversations().size() == deletionList.size()) {
+        ConversationsOverviewFragment fragment = (ConversationsOverviewFragment)
+                getFragmentManager().findFragmentById(R.id.main_fragment);
+        if (fragment.getConversations().size() == deletionList.size()) {
             deletionList.clear();
-            //TODO: set all item's background color with android.R.drawable.btn_default
+            fragment.changeBackgroundColor(false);
         } else {
             this.deletionList.clear();
-            this.deletionList = new HashSet<>(((ConversationsOverviewFragment) fragment).getConversations());
+            this.deletionList = new HashSet<>(fragment.getConversations());
+            fragment.changeBackgroundColor(true);
         }
 
     }
