@@ -2,9 +2,8 @@
 *.swp
 .settings
 
-src/main/res/values/defaults.xml
-src/main/java/eu/siacs/conversations/Config.java
-gradle/wrapper/gradle-wrapper.properties
+src/conversationsPlaystore/res/values/push.xml
+src/quicksyPlaystore/res/values/push.xml
 
 # https://github.com/github/gitignore/blob/master/Gradle.gitignore
 .gradle/
