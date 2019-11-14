@@ -99,6 +99,7 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
     public static final String EXTRA_NICK = "nick";
     public static final String EXTRA_IS_PRIVATE_MESSAGE = "pm";
     public static final String EXTRA_DO_NOT_APPEND = "do_not_append";
+    public static final String SELECTED_COLOR = "#dfdfdf";
 
     private static List<String> VIEW_AND_SHARE_ACTIONS = Arrays.asList(
             ACTION_VIEW_CONVERSATION,
@@ -413,7 +414,7 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
                 setSelectionColor(viewHolder, android.R.drawable.btn_default);
             } else {
                 deletionList.add(conversation);
-                setSelectionColor(viewHolder, Color.parseColor("#dfdfdf"));
+                setSelectionColor(viewHolder, Color.parseColor(SELECTED_COLOR));
             }
             return;
         }
@@ -748,7 +749,7 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         deletionList.add(conversation);
 
         //change background color and add into deletionList
-        setSelectionColor(viewHolder, Color.parseColor("#dfdfdf"));
+        setSelectionColor(viewHolder, Color.parseColor(SELECTED_COLOR));
 
     }
 

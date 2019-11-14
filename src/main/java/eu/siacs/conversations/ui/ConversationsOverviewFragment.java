@@ -74,6 +74,7 @@ import static android.support.v7.widget.helper.ItemTouchHelper.RIGHT;
 public class ConversationsOverviewFragment extends XmppFragment {
 
 	private static final String STATE_SCROLL_POSITION = ConversationsOverviewFragment.class.getName()+".scroll_state";
+	public static final String SELECTED_COLOR = "#dfdfdf";
 	private final List<Conversation> conversations = new ArrayList<>();
 	private final PendingItem<Conversation> swipedConversation = new PendingItem<>();
 	private final PendingItem<ScrollState> pendingScrollState = new PendingItem<>();
@@ -274,7 +275,7 @@ public class ConversationsOverviewFragment extends XmppFragment {
 			if (activity instanceof OnConversationSelected) {
 				((OnConversationSelected) activity).onConversationSelected((ConversationAdapter.ConversationViewHolder) viewHolder, conversation);
 			} else {
-				Log.w(ConversationsOverviewFragment.class.getCanonicalName(), "Activity does not implement OnConversationLongClicked");
+				Log.w(ConversationsOverviewFragment.class.getCanonicalName(), "Activity does not implement OnConversationSelected");
 			}
 		});
 
@@ -390,7 +391,7 @@ public class ConversationsOverviewFragment extends XmppFragment {
 	    for(int position=0; position < conversations.size(); position++){
             ConversationAdapter.ConversationViewHolder vh = (ConversationAdapter.ConversationViewHolder) this.binding.list.findViewHolderForLayoutPosition(position);
             if(isSelected){
-                vh.binding.frame.setBackgroundColor(Color.parseColor("#dfdfdf"));
+                vh.binding.frame.setBackgroundColor(Color.parseColor(SELECTED_COLOR));
             } else {
                 vh.binding.frame.setBackgroundColor(android.R.drawable.btn_default);
             }
