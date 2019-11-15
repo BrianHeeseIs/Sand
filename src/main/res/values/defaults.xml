@@ -46,4 +46,5 @@
     <string name="dev_account_jid"></string>
     <string name="dev_account_password"></string>
     <string name="dev_hostname"></string>
+    <string name="default_channel_discovery">JABBER_NETWORK</string>
 </resources>
