@@ -34,6 +34,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -58,6 +59,7 @@ import eu.siacs.conversations.entities.Conversation;
 import eu.siacs.conversations.entities.Conversational;
 import eu.siacs.conversations.ui.adapter.ConversationAdapter;
 import eu.siacs.conversations.ui.interfaces.OnConversationArchived;
+import eu.siacs.conversations.ui.interfaces.OnConversationLongClicked;
 import eu.siacs.conversations.ui.interfaces.OnConversationSelected;
 import eu.siacs.conversations.ui.util.MenuDoubleTabUtil;
 import eu.siacs.conversations.ui.util.PendingActionHelper;
@@ -72,7 +74,7 @@ import static android.support.v7.widget.helper.ItemTouchHelper.RIGHT;
 public class ConversationsOverviewFragment extends XmppFragment {
 
 	private static final String STATE_SCROLL_POSITION = ConversationsOverviewFragment.class.getName()+".scroll_state";
-
+	public static final String SELECTED_COLOR = "#dfdfdf";
 	private final List<Conversation> conversations = new ArrayList<>();
 	private final PendingItem<Conversation> swipedConversation = new PendingItem<>();
 	private final PendingItem<ScrollState> pendingScrollState = new PendingItem<>();
@@ -153,7 +155,7 @@ public class ConversationsOverviewFragment extends XmppFragment {
 						conversationsAdapter.insert(conversation, position);
 						if (formerlySelected) {
 							if (activity instanceof OnConversationSelected) {
-								((OnConversationSelected) activity).onConversationSelected(c);
+								((OnConversationSelected) activity).onConversationSelected(null, c);
 							}
 						}
 						LinearLayoutManager layoutManager = (LinearLayoutManager) binding.list.getLayoutManager();
@@ -268,12 +270,22 @@ public class ConversationsOverviewFragment extends XmppFragment {
 		this.binding.fab.setOnClickListener((view) -> StartConversationActivity.launch(getActivity()));
 
 		this.conversationsAdapter = new ConversationAdapter(this.activity, this.conversations);
-		this.conversationsAdapter.setConversationClickListener((view, conversation) -> {
+
+		this.conversationsAdapter.setConversationClickListener((viewHolder, conversation) -> {
 			if (activity instanceof OnConversationSelected) {
-				((OnConversationSelected) activity).onConversationSelected(conversation);
+				((OnConversationSelected) activity).onConversationSelected((ConversationAdapter.ConversationViewHolder) viewHolder, conversation);
 			} else {
 				Log.w(ConversationsOverviewFragment.class.getCanonicalName(), "Activity does not implement OnConversationSelected");
 			}
+		});
+
+		this.conversationsAdapter.setConversationLongClickListener((viewHolder, conversation) -> {
+			if (activity instanceof OnConversationLongClicked) {
+				((OnConversationLongClicked) activity).onConversationLongClicked((ConversationAdapter.ConversationViewHolder) viewHolder, conversation);
+			} else {
+				Log.w(ConversationsOverviewFragment.class.getCanonicalName(), "Activity does not implement OnConversationLongClicked");
+			}
+			return true;
 		});
 		this.binding.list.setAdapter(this.conversationsAdapter);
 		this.binding.list.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
@@ -370,4 +382,20 @@ public class ConversationsOverviewFragment extends XmppFragment {
 			layoutManager.scrollToPositionWithOffset(scrollPosition.position, scrollPosition.offset);
 		}
 	}
+
+	public List<Conversation> getConversations() {
+		return conversations;
+	}
+
+    public void changeBackgroundColor(boolean isSelected){
+	    for(int position=0; position < conversations.size(); position++){
+            ConversationAdapter.ConversationViewHolder vh = (ConversationAdapter.ConversationViewHolder) this.binding.list.findViewHolderForLayoutPosition(position);
+            if(isSelected){
+                vh.binding.frame.setBackgroundColor(Color.parseColor(SELECTED_COLOR));
+            } else {
+                vh.binding.frame.setBackgroundColor(android.R.drawable.btn_default);
+            }
+	    }
+
+    }
 }

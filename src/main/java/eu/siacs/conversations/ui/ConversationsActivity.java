@@ -40,13 +40,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
@@ -58,7 +57,9 @@ import android.widget.Toast;
 import org.openintents.openpgp.util.OpenPgpApi;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import eu.siacs.conversations.Config;
@@ -68,12 +69,13 @@ import eu.siacs.conversations.databinding.ActivityConversationsBinding;
 import eu.siacs.conversations.entities.Account;
 import eu.siacs.conversations.entities.Conversation;
 import eu.siacs.conversations.services.XmppConnectionService;
+import eu.siacs.conversations.ui.adapter.ConversationAdapter;
 import eu.siacs.conversations.ui.interfaces.OnBackendConnected;
 import eu.siacs.conversations.ui.interfaces.OnConversationArchived;
+import eu.siacs.conversations.ui.interfaces.OnConversationLongClicked;
 import eu.siacs.conversations.ui.interfaces.OnConversationRead;
 import eu.siacs.conversations.ui.interfaces.OnConversationSelected;
 import eu.siacs.conversations.ui.interfaces.OnConversationsListItemUpdated;
-import eu.siacs.conversations.ui.service.EmojiService;
 import eu.siacs.conversations.ui.util.ActivityResult;
 import eu.siacs.conversations.ui.util.ConversationMenuConfigurator;
 import eu.siacs.conversations.ui.util.MenuDoubleTabUtil;
@@ -88,7 +90,7 @@ import rocks.xmpp.addr.Jid;
 
 import static eu.siacs.conversations.ui.ConversationFragment.REQUEST_DECRYPT_PGP;
 
-public class ConversationsActivity extends XmppActivity implements OnConversationSelected, OnConversationArchived, OnConversationsListItemUpdated, OnConversationRead, XmppConnectionService.OnAccountUpdate, XmppConnectionService.OnConversationUpdate, XmppConnectionService.OnRosterUpdate, OnUpdateBlocklist, XmppConnectionService.OnShowErrorToast, XmppConnectionService.OnAffiliationChanged {
+public class ConversationsActivity extends XmppActivity implements OnConversationLongClicked, OnConversationSelected, OnConversationArchived, OnConversationsListItemUpdated, OnConversationRead, XmppConnectionService.OnAccountUpdate, XmppConnectionService.OnConversationUpdate, XmppConnectionService.OnRosterUpdate, OnUpdateBlocklist, XmppConnectionService.OnShowErrorToast, XmppConnectionService.OnAffiliationChanged {
 
     public static final String ACTION_VIEW_CONVERSATION = "eu.siacs.conversations.action.VIEW";
     public static final String EXTRA_CONVERSATION = "conversationUuid";
@@ -97,6 +99,7 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
     public static final String EXTRA_NICK = "nick";
     public static final String EXTRA_IS_PRIVATE_MESSAGE = "pm";
     public static final String EXTRA_DO_NOT_APPEND = "do_not_append";
+    public static final String SELECTED_COLOR = "#dfdfdf";
 
     private static List<String> VIEW_AND_SHARE_ACTIONS = Arrays.asList(
             ACTION_VIEW_CONVERSATION,
@@ -115,6 +118,8 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
     private final PendingItem<ActivityResult> postponedActivityResult = new PendingItem<>();
     private ActivityConversationsBinding binding;
     private boolean mActivityPaused = true;
+    private boolean wipeActivated = false;
+    Set<Conversation> deletionList = new HashSet<>();
     private AtomicBoolean mRedirectInProcess = new AtomicBoolean(false);
 
     private static boolean isViewOrShareIntent(Intent i) {
@@ -379,31 +384,50 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_conversations, menu);
-        AccountUtils.showHideMenuItems(menu);
-        MenuItem qrCodeScanMenuItem = menu.findItem(R.id.action_scan_qr_code);
-        if (qrCodeScanMenuItem != null) {
-            if (isCameraFeatureAvailable()) {
-                Fragment fragment = getFragmentManager().findFragmentById(R.id.main_fragment);
-                boolean visible = getResources().getBoolean(R.bool.show_qr_code_scan)
-                        && fragment != null
-                        && fragment instanceof ConversationsOverviewFragment;
-                qrCodeScanMenuItem.setVisible(visible);
-            } else {
-                qrCodeScanMenuItem.setVisible(false);
+        if (!wipeActivated) {
+            getMenuInflater().inflate(R.menu.activity_conversations, menu);
+            AccountUtils.showHideMenuItems(menu);
+            MenuItem qrCodeScanMenuItem = menu.findItem(R.id.action_scan_qr_code);
+            if (qrCodeScanMenuItem != null) {
+                if (isCameraFeatureAvailable()) {
+                    Fragment fragment = getFragmentManager().findFragmentById(R.id.main_fragment);
+                    boolean visible = getResources().getBoolean(R.bool.show_qr_code_scan)
+                            && fragment != null
+                            && fragment instanceof ConversationsOverviewFragment;
+                    qrCodeScanMenuItem.setVisible(visible);
+                } else {
+                    qrCodeScanMenuItem.setVisible(false);
+                }
             }
+        } else {
+            getMenuInflater().inflate(R.menu.activity_conversations_wipe, menu);
         }
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public void onConversationSelected(Conversation conversation) {
+    public void onConversationSelected(ConversationAdapter.ConversationViewHolder viewHolder, Conversation conversation) {
+        if (wipeActivated && viewHolder != null) {
+            //change background onSelectItem by the flag and add into deletionList
+            if (deletionList.contains(conversation)) {
+                deletionList.remove(conversation);
+                setSelectionColor(viewHolder, android.R.drawable.btn_default);
+            } else {
+                deletionList.add(conversation);
+                setSelectionColor(viewHolder, Color.parseColor(SELECTED_COLOR));
+            }
+            return;
+        }
         clearPendingViewIntent();
         if (ConversationFragment.getConversation(this) == conversation) {
             Log.d(Config.LOGTAG, "ignore onConversationSelected() because conversation is already open");
             return;
         }
         openConversation(conversation, null);
+    }
+
+    private void setSelectionColor(ConversationAdapter.ConversationViewHolder viewHolder, int i) {
+        viewHolder.binding.frame.setBackgroundColor(i);
     }
 
     public void clearPendingViewIntent() {
@@ -475,6 +499,7 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         if (MenuDoubleTabUtil.shouldIgnoreTap()) {
             return false;
         }
+
         switch (item.getItemId()) {
             case android.R.id.home:
                 FragmentManager fm = getFragmentManager();
@@ -490,8 +515,47 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
             case R.id.action_scan_qr_code:
                 UriHandlerActivity.scan(this);
                 return true;
+            case R.id.delete_button:
+                wipeSelectedConversations();
+                return true;
+            case R.id.select_all:
+                selectAllConversations();
+                return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void wipeSelectedConversations() {
+        //delete conversations which in the deletionList
+        for (Conversation c : deletionList) {
+            xmppConnectionService.clearConversationHistory(c);
+
+            //delete conversation from xmpp server instead of archive
+            xmppConnectionService.archiveConversation(c);
+            onConversationArchived(c);
+        }
+
+        deletionList.clear();
+
+        //after deletion, revert menu changes, and refresh conversation list
+        wipeActivated = false;
+        supportInvalidateOptionsMenu();
+        refreshUi();
+    }
+
+    private void selectAllConversations() {
+        //add all conversations into deletion list
+        ConversationsOverviewFragment fragment = (ConversationsOverviewFragment)
+                getFragmentManager().findFragmentById(R.id.main_fragment);
+        if (fragment.getConversations().size() == deletionList.size()) {
+            deletionList.clear();
+            fragment.changeBackgroundColor(false);
+        } else {
+            this.deletionList.clear();
+            this.deletionList = new HashSet<>(fragment.getConversations());
+            fragment.changeBackgroundColor(true);
+        }
+
     }
 
     @Override
@@ -670,4 +734,25 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
     public void onShowErrorToast(int resId) {
         runOnUiThread(() -> Toast.makeText(this, resId, Toast.LENGTH_SHORT).show());
     }
+
+    @Override
+    public void onConversationLongClicked(ConversationAdapter.ConversationViewHolder viewHolder, Conversation conversation) {
+        Log.w(ConversationsActivity.class.getCanonicalName(), "onConversationLongClicked");
+
+        //crete boolean flag
+        wipeActivated = true;
+
+        //update menu
+        supportInvalidateOptionsMenu();
+
+        //crete list with conversations which will be deleted
+        deletionList.add(conversation);
+
+        //change background color and add into deletionList
+        setSelectionColor(viewHolder, Color.parseColor(SELECTED_COLOR));
+
+    }
+
+
 }
+
