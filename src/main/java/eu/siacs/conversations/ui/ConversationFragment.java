@@ -3,6 +3,7 @@ package eu.siacs.conversations.ui;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -170,6 +171,7 @@ public class ConversationFragment extends XmppFragment implements EditMessage.Ke
     private Toast messageLoaderToast;
     private ConversationsActivity activity;
     private boolean reInitRequiredOnStart = true;
+    private Handler autoMessageDeletionHandler = new Handler();
     private OnClickListener clickToMuc = new OnClickListener() {
 
         @Override
@@ -1215,6 +1217,9 @@ public class ConversationFragment extends XmppFragment implements EditMessage.Ke
             case R.id.action_clear_history:
                 clearHistoryDialog(conversation);
                 break;
+            case R.id.action_set_deletion_period:
+                setAutomateDeletionTime(conversation);
+                break;
             case R.id.action_mute:
                 muteConversationDialog(conversation);
                 break;
@@ -1455,6 +1460,31 @@ public class ConversationFragment extends XmppFragment implements EditMessage.Ke
                 refresh();
             }
         });
+        builder.create().show();
+    }
+
+    @SuppressLint("InflateParams")
+    protected void setAutomateDeletionTime(final Conversation conversation) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final int[] choices = getResources().getIntArray(R.array.automatic_message_deletion_values);
+        CharSequence[] entries = new CharSequence[choices.length];
+        for (int i = 0; i < choices.length; ++i) {
+            if (choices[i] == 0) {
+                entries[i] = getString(R.string.never);
+            } else {
+                entries[i] = TimeframeUtils.resolve(getActivity(), 1000L * choices[i]);
+            }
+        }
+        builder.setTitle(R.string.pref_automatically_delete_messages)
+                .setItems(entries, (dialog, which) -> {
+                    Context context = activity.getApplicationContext();
+                    String toastMessage = context.getString(R.string.pref_automatically_delete_messages_with_param, entries[which]);
+                    Toast.makeText(activity, toastMessage, Toast.LENGTH_SHORT).show();
+                    conversation.setMessageDeletionPeriod(choices[which]);
+                    activity.xmppConnectionService.expireOldMessages(false);
+                    activity.xmppConnectionService.updateConversation(conversation);
+
+                });
         builder.create().show();
     }
 
@@ -1820,6 +1850,16 @@ public class ConversationFragment extends XmppFragment implements EditMessage.Ke
         }
     }
 
+    private Runnable autoMessageDeletionRunnable = new Runnable() {
+        @Override
+        public void run() {
+            Log.d(Config.LOGTAG, "Expire message started for " + conversation.getName() + " "
+                    + activity.xmppConnectionService.getAutomaticMessageDeletionDate(conversation));
+            activity.xmppConnectionService.expireOldMessages(false);
+            autoMessageDeletionHandler.postDelayed(this, 10000);
+        }
+    };
+
     @Override
     public void onStart() {
         super.onStart();
@@ -1829,6 +1869,8 @@ public class ConversationFragment extends XmppFragment implements EditMessage.Ke
             if (extras != null) {
                 processExtras(extras);
             }
+            this.autoMessageDeletionHandler.post(this.autoMessageDeletionRunnable);
+
         } else if (conversation == null && activity != null && activity.xmppConnectionService != null) {
             final String uuid = pendingConversationsUuid.pop();
             Log.d(Config.LOGTAG, "ConversationFragment.onStart() - activity was bound but no conversation loaded. uuid=" + uuid);
@@ -1841,6 +1883,7 @@ public class ConversationFragment extends XmppFragment implements EditMessage.Ke
     @Override
     public void onStop() {
         super.onStop();
+        this.autoMessageDeletionHandler.removeCallbacks(this.autoMessageDeletionRunnable);
         final Activity activity = getActivity();
         messageListAdapter.unregisterListenerInAudioPlayer();
         if (activity == null || !activity.isChangingConfigurations()) {

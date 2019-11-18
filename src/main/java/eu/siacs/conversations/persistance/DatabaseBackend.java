@@ -62,7 +62,7 @@ import rocks.xmpp.addr.Jid;
 public class DatabaseBackend extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "history";
-    private static final int DATABASE_VERSION = 45;
+    private static final int DATABASE_VERSION = 46;
     private static DatabaseBackend instance = null;
     private static String CREATE_CONTATCS_STATEMENT = "create table "
             + Contact.TABLENAME + "(" + Contact.ACCOUNT + " TEXT, "
@@ -219,7 +219,9 @@ public class DatabaseBackend extends SQLiteOpenHelper {
                 + Conversation.ACCOUNT + " TEXT, " + Conversation.CONTACTJID
                 + " TEXT, " + Conversation.CREATED + " NUMBER, "
                 + Conversation.STATUS + " NUMBER, " + Conversation.MODE
-                + " NUMBER, " + Conversation.ATTRIBUTES + " TEXT, FOREIGN KEY("
+                + " NUMBER, " + Conversation.ATTRIBUTES + " TEXT, "
+                + Conversation.MESSAGE_DELETION_PERIOD + " NUMBER, "
+                + "FOREIGN KEY("
                 + Conversation.ACCOUNT + ") REFERENCES " + Account.TABLENAME
                 + "(" + Account.UUID + ") ON DELETE CASCADE);");
         db.execSQL("create table " + Message.TABLENAME + "( " + Message.UUID
@@ -544,6 +546,10 @@ public class DatabaseBackend extends SQLiteOpenHelper {
 
         if (oldVersion < 45 && newVersion >= 45) {
             db.execSQL("ALTER TABLE " + Message.TABLENAME + " ADD COLUMN " + Message.BODY_LANGUAGE);
+        }
+
+        if (oldVersion < 46 && newVersion >= 46) {
+            db.execSQL("ALTER TABLE " + Conversation.TABLENAME + " ADD COLUMN " + Conversation.MESSAGE_DELETION_PERIOD + " NUMBER DEFAULT 86400");
         }
     }
 
@@ -1022,12 +1028,12 @@ public class DatabaseBackend extends SQLiteOpenHelper {
         Log.d(Config.LOGTAG, "deleted " + num + " messages for " + conversation.getJid().asBareJid() + " in " + (SystemClock.elapsedRealtime() - start) + "ms");
     }
 
-    public void expireOldMessages(long timestamp) {
-        final String[] args = {String.valueOf(timestamp)};
+    public void expireOldMessages(String conversationUuid, long timestamp) {
+        final String[] args = {String.valueOf(timestamp), String.valueOf(conversationUuid)};
         SQLiteDatabase db = this.getReadableDatabase();
         db.beginTransaction();
-        db.delete("messages_index", "uuid in (select uuid from messages where timeSent<?)", args);
-        db.delete(Message.TABLENAME, "timeSent<?", args);
+        db.delete("messages_index", "uuid in (select uuid from messages where timeSent<? and conversationUuid=?)", args);
+        db.delete(Message.TABLENAME, "timeSent<? and conversationUuid=?", args);
         db.setTransactionSuccessful();
         db.endTransaction();
     }

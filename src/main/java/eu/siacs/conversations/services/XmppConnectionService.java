@@ -1013,20 +1013,18 @@ public class XmppConnectionService extends Service {
     public void expireOldMessages(final boolean resetHasMessagesLeftOnServer) {
         mLastExpiryRun.set(SystemClock.elapsedRealtime());
         mDatabaseWriterExecutor.execute(() -> {
-            long timestamp = getAutomaticMessageDeletionDate();
-            if (timestamp > 0) {
-                databaseBackend.expireOldMessages(timestamp);
-                synchronized (XmppConnectionService.this.conversations) {
-                    for (Conversation conversation : XmppConnectionService.this.conversations) {
-                        conversation.expireOldMessages(timestamp);
-                        if (resetHasMessagesLeftOnServer) {
-                            conversation.messagesLoaded.set(true);
-                            conversation.setHasMessagesLeftOnServer(true);
-                        }
+            synchronized (XmppConnectionService.this.conversations) {
+                for (Conversation conversation : XmppConnectionService.this.conversations) {
+                    long deletionDate = getAutomaticMessageDeletionDate(conversation);
+                    databaseBackend.expireOldMessages(conversation.getUuid(), deletionDate);
+                    conversation.expireOldMessages(deletionDate);
+                    if (resetHasMessagesLeftOnServer) {
+                        conversation.messagesLoaded.set(true);
+                        conversation.setHasMessagesLeftOnServer(true);
                     }
                 }
-                updateConversationUi();
             }
+            updateConversationUi();
         });
     }
 
@@ -1756,11 +1754,13 @@ public class XmppConnectionService extends Service {
             long diffConversationsRestore = SystemClock.elapsedRealtime() - startTimeConversationsRestore;
             Log.d(Config.LOGTAG, "finished restoring conversations in " + diffConversationsRestore + "ms");
             Runnable runnable = () -> {
-                long deletionDate = getAutomaticMessageDeletionDate();
                 mLastExpiryRun.set(SystemClock.elapsedRealtime());
-                if (deletionDate > 0) {
-                    Log.d(Config.LOGTAG, "deleting messages that are older than " + AbstractGenerator.getTimestamp(deletionDate));
-                    databaseBackend.expireOldMessages(deletionDate);
+                for (Conversation conversation: this.conversations) {
+                    long deletionDate = getAutomaticMessageDeletionDate(conversation);
+                    if (deletionDate > 0) {
+                        Log.d(Config.LOGTAG, "deleting messages that are older than " + AbstractGenerator.getTimestamp(deletionDate) + " in" + conversation.getName() + " conversation");
+                        databaseBackend.expireOldMessages(conversation.getUuid(), deletionDate);
+                    }
                 }
                 Log.d(Config.LOGTAG, "restoring roster...");
                 for (Account account : accounts) {
@@ -3872,8 +3872,8 @@ public class XmppConnectionService extends Service {
         return PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
     }
 
-    public long getAutomaticMessageDeletionDate() {
-        final long timeout = getLongPreference(SettingsActivity.AUTOMATIC_MESSAGE_DELETION, R.integer.automatic_message_deletion);
+    public long getAutomaticMessageDeletionDate(Conversation conversation) {
+        long timeout = conversation.getMessageDeletionPeriod();
         return timeout == 0 ? timeout : (System.currentTimeMillis() - (timeout * 1000));
     }
 

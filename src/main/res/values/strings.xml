@@ -645,6 +645,8 @@
     </plurals>
     <string name="pref_automatically_delete_messages">Automatic message deletion</string>
     <string name="pref_automatically_delete_messages_description">Automatically delete messages from this device that are older than the configured time frame.</string>
+    <string name="action_set_deletion_period">Set Message Delete Time</string>
+    <string name="pref_automatically_delete_messages_with_param">Automatic message deletion: %1$s</string>
     <string name="encrypting_message">Encrypting message</string>
     <string name="not_fetching_history_retention_period">Not fetching messages due to local retention period.</string>
     <string name="transcoding_video">Compressing video</string>
