@@ -38,4 +38,13 @@
 	<color name="scan_result_dots">#c04CAF50</color>
 
 	<color name="blue500">#ff2196f3</color>
+
+ 	<!-- Custom Colors for Sand -->
+	<color name="dark_blue">#1F2B37</color>
+	<color name="dark_blue_dark">#1B252F</color>
+
+    <color name="telegram_blue">#517CA2</color>
+    <color name="telegram_blue_dark">#416382</color>
+	<color name="telegram_blue_light">#66A9E0</color>
+	<color name="conversation_background">#D1D8E0</color>
 </resources>
