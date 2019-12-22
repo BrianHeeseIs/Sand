@@ -391,8 +391,10 @@ public class ConversationsOverviewFragment extends XmppFragment {
     public void select(boolean isSelected){
 	    for(int position=0; position < conversations.size(); position++){
             ConversationAdapter.ConversationViewHolder vh = (ConversationAdapter.ConversationViewHolder) this.binding.list.findViewHolderForLayoutPosition(position);
+			if(vh == null || vh.binding == null){
+				return;
+			}
 			vh.binding.selected.setVisibility(isSelected ? VISIBLE : INVISIBLE);
 		}
-
     }
 }
