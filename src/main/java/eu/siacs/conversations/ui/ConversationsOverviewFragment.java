@@ -390,12 +390,14 @@ public class ConversationsOverviewFragment extends XmppFragment {
     public void changeBackgroundColor(boolean isSelected){
 	    for(int position=0; position < conversations.size(); position++){
             ConversationAdapter.ConversationViewHolder vh = (ConversationAdapter.ConversationViewHolder) this.binding.list.findViewHolderForLayoutPosition(position);
+            if(vh == null || vh.binding == null){
+                return;
+            }
             if(isSelected){
                 vh.binding.frame.setBackgroundColor(Color.parseColor(SELECTED_COLOR));
             } else {
                 vh.binding.frame.setBackgroundColor(android.R.drawable.btn_default);
             }
 	    }
-
     }
 }
