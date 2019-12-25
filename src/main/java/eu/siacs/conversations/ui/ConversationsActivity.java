@@ -515,6 +515,9 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
             case R.id.action_scan_qr_code:
                 UriHandlerActivity.scan(this);
                 return true;
+            case R.id.cancel_wipe:
+                cancelWipe();
+                return true;
             case R.id.select_all_main:
                 selectAllConversations(true);
                 return true;
@@ -526,6 +529,17 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void cancelWipe() {
+        //add all conversations into deletion list
+        ConversationsOverviewFragment fragment = (ConversationsOverviewFragment)
+                getFragmentManager().findFragmentById(R.id.main_fragment);
+        deletionList.clear();
+        fragment.select(false);
+        wipeActivated = false;
+        supportInvalidateOptionsMenu();
+        refreshUi();
     }
 
     private void wipeSelectedConversations() {
@@ -543,7 +557,9 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         //after deletion, revert menu changes, and refresh conversation list
         wipeActivated = false;
         supportInvalidateOptionsMenu();
-        refreshUi();
+        ConversationsOverviewFragment fragment = (ConversationsOverviewFragment)
+                getFragmentManager().findFragmentById(R.id.main_fragment);
+        fragment.refresh();
     }
 
     private void selectAllConversations(boolean enableWipe) {

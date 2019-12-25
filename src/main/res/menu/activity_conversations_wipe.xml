@@ -1,6 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/cancel_wipe"
+        android:title="@string/cancel"
+        app:showAsAction="always"
+        android:orderInCategory="5"
+        android:icon="?attr/ic_cancel_white"/>
+
+    <item
         android:id="@+id/select_all"
         android:title="@string/select_all"
         app:showAsAction="always"
