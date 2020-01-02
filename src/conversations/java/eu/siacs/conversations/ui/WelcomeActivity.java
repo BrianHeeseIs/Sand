@@ -60,7 +60,8 @@ public class WelcomeActivity extends XmppActivity {
         setSupportActionBar((Toolbar) binding.toolbar);
         configureActionBar(getSupportActionBar(), false);
         binding.registerNewAccount.setOnClickListener(v -> {
-            final Intent intent = new Intent(this, PickServerActivity.class);
+            final Intent intent = new Intent(this, MagicCreateActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             addInviteUri(intent);
             startActivity(intent);
         });

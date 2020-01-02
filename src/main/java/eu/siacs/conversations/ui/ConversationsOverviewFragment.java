@@ -34,7 +34,6 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -70,6 +69,8 @@ import eu.siacs.conversations.utils.ThemeHelper;
 
 import static android.support.v7.widget.helper.ItemTouchHelper.LEFT;
 import static android.support.v7.widget.helper.ItemTouchHelper.RIGHT;
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
 
 public class ConversationsOverviewFragment extends XmppFragment {
 
@@ -387,17 +388,13 @@ public class ConversationsOverviewFragment extends XmppFragment {
 		return conversations;
 	}
 
-    public void changeBackgroundColor(boolean isSelected){
-	    for(int position=0; position < conversations.size(); position++){
+    public void select(boolean isSelected){
+	   for(int position=0; position < conversations.size(); position++){
             ConversationAdapter.ConversationViewHolder vh = (ConversationAdapter.ConversationViewHolder) this.binding.list.findViewHolderForLayoutPosition(position);
             if(vh == null || vh.binding == null){
-                return;
+              return;
             }
-            if(isSelected){
-                vh.binding.frame.setBackgroundColor(Color.parseColor(SELECTED_COLOR));
-            } else {
-                vh.binding.frame.setBackgroundColor(android.R.drawable.btn_default);
-            }
-	    }
+            vh.binding.selected.setVisibility(isSelected ? VISIBLE : INVISIBLE);
+          }
     }
 }

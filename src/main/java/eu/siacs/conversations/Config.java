@@ -38,7 +38,7 @@ public final class Config {
 
 
     public static final String DOMAIN_LOCK = "";
-    public static final String MAGIC_CREATE_DOMAIN = "conversations.im";
+    public static final String MAGIC_CREATE_DOMAIN = "";
     public static final String QUICKSY_DOMAIN = "quicksy.im";
 
     public static final String CHANNEL_DISCOVERY = "https://search.jabber.network";

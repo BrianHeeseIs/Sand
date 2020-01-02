@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="ConversationsTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/green600</item>
-        <item name="colorPrimaryDark">@color/green800</item>
-        <item name="colorAccent">@color/blue_a200</item>
+    <style name="SandTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/telegram_blue</item>
+        <item name="colorPrimaryDark">@color/telegram_blue_dark</item>
+        <item name="colorAccent">@color/telegram_blue_light</item>
         <item name="popupOverlayStyle">@style/ThemeOverlay.AppCompat.Light</item>
 
-        <item name="color_background_primary">@color/grey50</item>
-        <item name="color_background_secondary">@color/grey200</item>
+        <item name="color_background_primary">@color/white</item>
+        <item name="color_background_secondary">@color/conversation_background</item>
         <item name="color_background_tertiary">@color/grey300</item>
         <item name="color_background_overlay">@color/black12</item>
         <item name="color_warning">@color/red_a700</item>
@@ -88,6 +88,7 @@
         <item type="reference" name="icon_edit_body">@drawable/ic_edit_black_24dp</item>
         <item type="reference" name="icon_save">@drawable/ic_save_black_24dp</item>
         <item type="reference" name="icon_done">@drawable/ic_done_black_24dp</item>
+        <item type="reference" name="icon_select">@drawable/ic_done_white</item>
         <item type="reference" name="icon_group">@drawable/ic_group_white_24dp</item>
         <item type="reference" name="icon_new">@drawable/ic_add_white_24dp</item>
         <item type="reference" name="icon_quote">@drawable/ic_reply_white_24dp</item>
@@ -116,14 +117,58 @@
         <item type="reference" name="icon_enable_undecided_device">@drawable/ic_new_releases_black_24dp</item>
     </style>
 
-    <style name="ConversationsTheme.Dark" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/green800</item>
-        <item name="colorPrimaryDark">@color/green900</item>
+    <style name="SandTheme.Medium" parent="SandTheme">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+    </style>
+
+    <style name="SandTheme.Large" parent="SandTheme">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+    </style>
+
+    <style name="SandTheme.Dialog" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/green600</item>
+        <item name="colorPrimaryDark">@color/green700</item>
+        <item name="colorAccent">@color/blue_a200</item>
+        <item name="color_background_primary">@color/grey50</item>
+        <item name="divider">@color/black12</item>
+        <item name="TextSizeTitle">18sp</item>
+        <item name="TextSizeBody2">14sp</item>
+        <item name="TextSizeDisplay2">45sp</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="SandTheme.Dialog.Medium" parent="SandTheme.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <style name="SandTheme.Dialog.Large" parent="SandTheme.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeDisplay2">56sp</item>
+    </style>
+
+    <style name="SandTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/dark_blue</item>
+        <item name="colorPrimaryDark">@color/dark_blue_dark</item>
         <item name="colorAccent">@color/blue_a100</item>
         <item name="popupOverlayStyle">@style/ThemeOverlay.AppCompat.Dark</item>
         <item name="android:navigationBarColor" tools:targetApi="21">@color/black</item>
 
-        <item name="color_background_primary">@color/grey800</item>
+        <item name="color_background_primary">@color/dark_blue_dark</item>
         <item name="color_background_secondary">@color/grey900</item>
         <item name="color_background_tertiary">@color/grey700</item>
         <item name="color_background_overlay">@color/black26</item>
@@ -204,6 +249,7 @@
         <item type="reference" name="icon_edit_body">@drawable/ic_edit_white_24dp</item>
         <item type="reference" name="icon_save">@drawable/ic_save_white_24dp</item>
         <item type="reference" name="icon_done">@drawable/ic_done_black_24dp</item>
+        <item type="reference" name="icon_select">@drawable/ic_done_white</item>
         <item type="reference" name="icon_group">@drawable/ic_group_white_24dp</item>
         <item type="reference" name="icon_new">@drawable/ic_add_white_24dp</item>
         <item type="reference" name="icon_quote">@drawable/ic_reply_white_24dp</item>
@@ -231,7 +277,7 @@
         <item type="reference" name="icon_enable_undecided_device">@drawable/ic_new_releases_white_24dp</item>
     </style>
 
-    <style name="ConversationsTheme.Medium" parent="ConversationsTheme">
+    <style name="SandTheme.Dark.Medium" parent="SandTheme.Dark">
         <item name="TextSizeCaption">14sp</item>
         <item name="TextSizeBody1">16sp</item>
         <item name="TextSizeBody2">16sp</item>
@@ -242,40 +288,39 @@
         <item name="IconSize">20sp</item>
     </style>
 
-    <style name="ConversationsTheme.Dark.Medium" parent="ConversationsTheme.Dark">
-        <item name="TextSizeCaption">14sp</item>
-        <item name="TextSizeBody1">16sp</item>
+    <style name="SandTheme.Dark.Large" parent="SandTheme.Dark">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+    </style>
+
+    <style name="SandTheme.Dark.Dialog" parent="@style/Theme.AppCompat.Dialog">
+        <item name="colorPrimary">@color/green800</item>
+        <item name="colorPrimaryDark">@color/green900</item>
+        <item name="colorAccent">@color/blue_a100</item>
+        <item name="color_background_primary">@color/grey800</item>
+        <item name="divider">@color/white12</item>
+        <item name="TextSizeBody2">14sp</item>
+        <item name="TextSizeDisplay2">45sp</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="SandTheme.Dark.Dialog.Medium" parent="SandTheme.Dark.Dialog">
         <item name="TextSizeBody2">16sp</item>
-        <item name="TextSizeSubhead">18sp</item>
-        <item name="TextSizeTitle">22sp</item>
-        <item name="TextSizeInput">18sp</item>
-        <item name="TextSeparation">6sp</item>
-        <item name="IconSize">20sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
     </style>
 
-    <style name="ConversationsTheme.Dark.Large" parent="ConversationsTheme.Dark">
-        <item name="TextSizeCaption">16sp</item>
-        <item name="TextSizeBody1">18sp</item>
+    <style name="SandTheme.Dark.Dialog.Large" parent="SandTheme.Dark.Dialog">
         <item name="TextSizeBody2">18sp</item>
-        <item name="TextSizeSubhead">20sp</item>
-        <item name="TextSizeTitle">24sp</item>
-        <item name="TextSizeInput">20sp</item>
-        <item name="TextSeparation">7sp</item>
-        <item name="IconSize">22sp</item>
+        <item name="TextSizeTitle">56sp</item>
     </style>
 
-    <style name="ConversationsTheme.Large" parent="ConversationsTheme">
-        <item name="TextSizeCaption">16sp</item>
-        <item name="TextSizeBody1">18sp</item>
-        <item name="TextSizeBody2">18sp</item>
-        <item name="TextSizeSubhead">20sp</item>
-        <item name="TextSizeTitle">24sp</item>
-        <item name="TextSizeInput">20sp</item>
-        <item name="TextSeparation">7sp</item>
-        <item name="IconSize">22sp</item>
-    </style>
-
-    <style name="ConversationsTheme.FullScreen" parent="@style/Theme.AppCompat.Light">
+    <style name="SandTheme.FullScreen" parent="@style/Theme.AppCompat.Light">
         <item name="colorPrimary">@color/green600</item>
         <item name="colorPrimaryDark">@color/green700</item>
         <item name="android:windowNoTitle">true</item>
@@ -290,48 +335,4 @@
         <item name="colorPrimaryDark">@color/grey300</item>
         <item name="android:windowBackground">@drawable/background</item>
     </style>
-
-    <style name="ConversationsTheme.Dialog" parent="@style/Theme.AppCompat.Light.Dialog">
-        <item name="colorPrimary">@color/green600</item>
-        <item name="colorPrimaryDark">@color/green700</item>
-        <item name="colorAccent">@color/blue_a200</item>
-        <item name="color_background_primary">@color/grey50</item>
-        <item name="divider">@color/black12</item>
-        <item name="TextSizeTitle">18sp</item>
-        <item name="TextSizeBody2">14sp</item>
-        <item name="TextSizeDisplay2">45sp</item>
-        <item name="android:windowNoTitle">true</item>
-    </style>
-
-    <style name="ConversationsTheme.Dark.Dialog" parent="@style/Theme.AppCompat.Dialog">
-        <item name="colorPrimary">@color/green800</item>
-        <item name="colorPrimaryDark">@color/green900</item>
-        <item name="colorAccent">@color/blue_a100</item>
-        <item name="color_background_primary">@color/grey800</item>
-        <item name="divider">@color/white12</item>
-        <item name="TextSizeBody2">14sp</item>
-        <item name="TextSizeDisplay2">45sp</item>
-        <item name="android:windowNoTitle">true</item>
-    </style>
-
-    <style name="ConversationsTheme.Dialog.Medium" parent="ConversationsTheme.Dialog">
-        <item name="TextSizeBody2">16sp</item>
-        <item name="TextSizeDisplay2">51sp</item>
-    </style>
-
-    <style name="ConversationsTheme.Dark.Dialog.Medium" parent="ConversationsTheme.Dark.Dialog">
-        <item name="TextSizeBody2">16sp</item>
-        <item name="TextSizeDisplay2">51sp</item>
-    </style>
-
-    <style name="ConversationsTheme.Dialog.Large" parent="ConversationsTheme.Dialog">
-        <item name="TextSizeBody2">18sp</item>
-        <item name="TextSizeDisplay2">56sp</item>
-    </style>
-
-    <style name="ConversationsTheme.Dark.Dialog.Large" parent="ConversationsTheme.Dark.Dialog">
-        <item name="TextSizeBody2">18sp</item>
-        <item name="TextSizeTitle">56sp</item>
-    </style>
-
 </resources>

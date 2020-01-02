@@ -52,11 +52,11 @@ public class ThemeHelper {
 		final String fontSize = sharedPreferences.getString("font_size", resources.getString(R.string.default_font_size));
 		switch (fontSize) {
 			case "medium":
-				return dark ? R.style.ConversationsTheme_Dark_Medium : R.style.ConversationsTheme_Medium;
+				return dark ? R.style.SandTheme_Dark_Medium : R.style.SandTheme_Medium;
 			case "large":
-				return dark ? R.style.ConversationsTheme_Dark_Large : R.style.ConversationsTheme_Large;
+				return dark ? R.style.SandTheme_Dark_Large : R.style.SandTheme_Large;
 			default:
-				return dark ? R.style.ConversationsTheme_Dark : R.style.ConversationsTheme;
+				return dark ? R.style.SandTheme_Dark : R.style.SandTheme;
 		}
 	}
 
@@ -67,19 +67,19 @@ public class ThemeHelper {
 		final String fontSize = sharedPreferences.getString("font_size", resources.getString(R.string.default_font_size));
 		switch (fontSize) {
 			case "medium":
-				return dark ? R.style.ConversationsTheme_Dark_Dialog_Medium : R.style.ConversationsTheme_Dialog_Medium;
+				return dark ? R.style.SandTheme_Dark_Dialog_Medium : R.style.SandTheme_Dialog_Medium;
 			case "large":
-				return dark ? R.style.ConversationsTheme_Dark_Dialog_Large : R.style.ConversationsTheme_Dialog_Large;
+				return dark ? R.style.SandTheme_Dark_Dialog_Large : R.style.SandTheme_Dialog_Large;
 			default:
-				return dark ? R.style.ConversationsTheme_Dark_Dialog : R.style.ConversationsTheme_Dialog;
+				return dark ? R.style.SandTheme_Dark_Dialog : R.style.SandTheme_Dialog;
 		}
 	}
 
 	public static boolean isDark(@StyleRes int id) {
 		switch (id) {
-			case R.style.ConversationsTheme_Dark:
-			case R.style.ConversationsTheme_Dark_Large:
-			case R.style.ConversationsTheme_Dark_Medium:
+			case R.style.SandTheme_Dark:
+			case R.style.SandTheme_Dark_Large:
+			case R.style.SandTheme_Dark_Medium:
 				return true;
 			default:
 				return false;
