@@ -40,7 +40,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -88,6 +87,8 @@ import eu.siacs.conversations.utils.XmppUri;
 import eu.siacs.conversations.xmpp.OnUpdateBlocklist;
 import rocks.xmpp.addr.Jid;
 
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
 import static eu.siacs.conversations.ui.ConversationFragment.REQUEST_DECRYPT_PGP;
 
 public class ConversationsActivity extends XmppActivity implements OnConversationLongClicked, OnConversationSelected, OnConversationArchived, OnConversationsListItemUpdated, OnConversationRead, XmppConnectionService.OnAccountUpdate, XmppConnectionService.OnConversationUpdate, XmppConnectionService.OnRosterUpdate, OnUpdateBlocklist, XmppConnectionService.OnShowErrorToast, XmppConnectionService.OnAffiliationChanged {
@@ -99,7 +100,6 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
     public static final String EXTRA_NICK = "nick";
     public static final String EXTRA_IS_PRIVATE_MESSAGE = "pm";
     public static final String EXTRA_DO_NOT_APPEND = "do_not_append";
-    public static final String SELECTED_COLOR = "#dfdfdf";
 
     private static List<String> VIEW_AND_SHARE_ACTIONS = Arrays.asList(
             ACTION_VIEW_CONVERSATION,
@@ -411,10 +411,10 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
             //change background onSelectItem by the flag and add into deletionList
             if (deletionList.contains(conversation)) {
                 deletionList.remove(conversation);
-                setSelectionColor(viewHolder, android.R.drawable.btn_default);
+                select(viewHolder, false);
             } else {
                 deletionList.add(conversation);
-                setSelectionColor(viewHolder, Color.parseColor(SELECTED_COLOR));
+                select(viewHolder, true);
             }
             return;
         }
@@ -426,9 +426,9 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         openConversation(conversation, null);
     }
 
-    private void setSelectionColor(ConversationAdapter.ConversationViewHolder viewHolder, int i) {
-        viewHolder.binding.frame.setBackgroundColor(i);
-    }
+    private void select(ConversationAdapter.ConversationViewHolder viewHolder, boolean selected) {
+        viewHolder.binding.selected.setVisibility(selected ? VISIBLE : INVISIBLE);
+     }
 
     public void clearPendingViewIntent() {
         if (pendingViewIntent.clear()) {
@@ -549,11 +549,11 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
                 getFragmentManager().findFragmentById(R.id.main_fragment);
         if (fragment.getConversations().size() == deletionList.size()) {
             deletionList.clear();
-            fragment.changeBackgroundColor(false);
+            fragment.select(false);
         } else {
             this.deletionList.clear();
             this.deletionList = new HashSet<>(fragment.getConversations());
-            fragment.changeBackgroundColor(true);
+            fragment.select(true);
         }
 
     }
@@ -748,8 +748,8 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         //crete list with conversations which will be deleted
         deletionList.add(conversation);
 
-        //change background color and add into deletionList
-        setSelectionColor(viewHolder, Color.parseColor(SELECTED_COLOR));
+        //show selected icon and add into deletionList
+        select(viewHolder, true);
 
     }
 
