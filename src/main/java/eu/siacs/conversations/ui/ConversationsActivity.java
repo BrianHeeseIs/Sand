@@ -51,10 +51,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -93,6 +91,7 @@ import eu.siacs.conversations.utils.ExceptionHelper;
 import eu.siacs.conversations.utils.SignupUtils;
 import eu.siacs.conversations.utils.XmppUri;
 import eu.siacs.conversations.xmpp.OnUpdateBlocklist;
+import eu.siacs.conversations.xmpp.pep.Avatar;
 import rocks.xmpp.addr.Jid;
 
 import static android.view.View.INVISIBLE;
@@ -690,7 +689,12 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
                     v.setVisibility(VISIBLE);
                     if(conversation.getContact() != null && conversation.getContact().getAvatar() != null){
                         byte[] bitmapdata = conversation.getContact().getAvatar().getImageAsBytes();
-                        Bitmap bitmap = BitmapFactory.decodeByteArray(bitmapdata, 0, bitmapdata.length);
+                        Bitmap bitmap;
+                        if (bitmapdata == null && conversation.getContact().getAvatar().origin == Avatar.Origin.VCARD) {
+                            bitmap = xmppConnectionService.getAvatarService().get(conversation, 50);
+                        } else {
+                            bitmap = BitmapFactory.decodeByteArray(bitmapdata, 0, bitmapdata.length);
+                        }
                         v.setImageBitmap(bitmap);
                     } else {
                         v.setImageBitmap(AvatarService.get(conversation.getJid(), 50));

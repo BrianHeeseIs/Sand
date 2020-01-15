@@ -19,6 +19,9 @@ public class Avatar {
 	public Origin origin = Origin.PEP; //default to maintain compat
 
 	public byte[] getImageAsBytes() {
+		if(image == null){
+			return null;
+		}
 		return Base64.decode(image, Base64.DEFAULT);
 	}
 
