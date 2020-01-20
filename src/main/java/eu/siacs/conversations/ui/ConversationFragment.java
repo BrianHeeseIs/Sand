@@ -2357,8 +2357,9 @@ public class ConversationFragment extends XmppFragment implements EditMessage.Ke
                             return;
                         } else {
                             if (message.getStatus() == Message.STATUS_SEND_DISPLAYED) {
-                                this.messageList.add(i + 1,
-                                        Message.createStatusMessage(conversation, getString(R.string.contact_has_read_up_to_this_point, conversation.getName())));
+                                //disabled showing status read information
+//                                this.messageList.add(i + 1,
+//                                        Message.createStatusMessage(conversation, getString(R.string.contact_has_read_up_to_this_point, conversation.getName())));
                                 return;
                             }
                         }
@@ -2410,7 +2411,8 @@ public class ConversationFragment extends XmppFragment implements EditMessage.Ke
                         statusMessage = null;
                     }
                     if (statusMessage != null) {
-                        this.messageList.add(i + 1, statusMessage);
+                        //disabled showing status read information
+//                        this.messageList.add(i + 1, statusMessage);
                     }
                     addedMarkers.add(markerForSender);
                     if (ReadByMarker.allUsersRepresented(allUsers, addedMarkers)) {
@@ -2431,7 +2433,8 @@ public class ConversationFragment extends XmppFragment implements EditMessage.Ke
                     statusMessage = Message.createStatusMessage(conversation, getString(id, UIHelper.concatNames(users)));
                     statusMessage.setCounterparts(users);
                 }
-                this.messageList.add(statusMessage);
+                //disabled showing status read information
+//                this.messageList.add(statusMessage);
             }
 
         }
