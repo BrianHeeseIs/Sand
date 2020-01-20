@@ -626,6 +626,7 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 				case SENT:
 					view = activity.getLayoutInflater().inflate(R.layout.message_sent, parent, false);
 					viewHolder.message_box = view.findViewById(R.id.message_box);
+					viewHolder.message_photo_box = view.findViewById(R.id.message_photo_box);
 					viewHolder.contact_picture = view.findViewById(R.id.message_photo);
 					viewHolder.download_button = view.findViewById(R.id.download_button);
 					viewHolder.indicator = view.findViewById(R.id.security_indicator);
@@ -659,6 +660,18 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 				default:
 					throw new AssertionError("Unknown view type");
 			}
+
+			if (viewHolder.contact_picture != null && conversation.getMode() == Conversational.MODE_SINGLE) {
+				ViewGroup.LayoutParams layoutParams = viewHolder.contact_picture.getLayoutParams();
+				layoutParams.width = 0;
+				viewHolder.contact_picture.setLayoutParams(layoutParams);
+			}
+			if (viewHolder.message_photo_box != null && conversation.getMode() == Conversational.MODE_SINGLE) {
+				ViewGroup.LayoutParams layoutParams = viewHolder.message_photo_box.getLayoutParams();
+				layoutParams.width = 0;
+				viewHolder.message_photo_box.setLayoutParams(layoutParams);
+			}
+
 			if (viewHolder.messageBody != null) {
 				listSelectionManager.onCreate(viewHolder.messageBody,
 						new MessageBodyActionModeCallback(viewHolder.messageBody));
@@ -944,6 +957,7 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 		protected TextView time;
 		protected CopyTextView messageBody;
 		protected ImageView contact_picture;
+		protected View message_photo_box;
 		protected TextView status_message;
 		protected TextView encryption;
 	}

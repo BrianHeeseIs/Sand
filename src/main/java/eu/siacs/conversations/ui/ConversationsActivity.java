@@ -40,6 +40,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -51,7 +53,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import org.openintents.openpgp.util.OpenPgpApi;
 
@@ -67,6 +72,7 @@ import eu.siacs.conversations.crypto.OmemoSetting;
 import eu.siacs.conversations.databinding.ActivityConversationsBinding;
 import eu.siacs.conversations.entities.Account;
 import eu.siacs.conversations.entities.Conversation;
+import eu.siacs.conversations.services.AvatarService;
 import eu.siacs.conversations.services.XmppConnectionService;
 import eu.siacs.conversations.ui.adapter.ConversationAdapter;
 import eu.siacs.conversations.ui.interfaces.OnBackendConnected;
@@ -85,6 +91,7 @@ import eu.siacs.conversations.utils.ExceptionHelper;
 import eu.siacs.conversations.utils.SignupUtils;
 import eu.siacs.conversations.utils.XmppUri;
 import eu.siacs.conversations.xmpp.OnUpdateBlocklist;
+import eu.siacs.conversations.xmpp.pep.Avatar;
 import rocks.xmpp.addr.Jid;
 
 import static android.view.View.INVISIBLE;
@@ -668,15 +675,41 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             Fragment mainFragment = getFragmentManager().findFragmentById(R.id.main_fragment);
+            RoundedImageView v = this.binding.toolbar.findViewById(R.id.toolbar_conversation_image);
+            TextView mTitleTextView = this.binding.toolbar.findViewById(R.id.title_text);
+
             if (mainFragment instanceof ConversationFragment) {
                 final Conversation conversation = ((ConversationFragment) mainFragment).getConversation();
                 if (conversation != null) {
-                    actionBar.setTitle(EmojiWrapper.transform(conversation.getName()));
                     actionBar.setDisplayHomeAsUpEnabled(true);
+                    actionBar.setDisplayShowTitleEnabled(false);
+
+                    mTitleTextView.setText(EmojiWrapper.transform(conversation.getName()));
+                    mTitleTextView.setVisibility(VISIBLE);
+                    v.setVisibility(VISIBLE);
+                    if(conversation.getContact() != null && conversation.getContact().getAvatar() != null){
+                        byte[] bitmapdata = conversation.getContact().getAvatar().getImageAsBytes();
+                        Bitmap bitmap;
+                        if (bitmapdata == null && conversation.getContact().getAvatar().origin == Avatar.Origin.VCARD) {
+                            bitmap = xmppConnectionService.getAvatarService().get(conversation, 50);
+                        } else {
+                            bitmap = BitmapFactory.decodeByteArray(bitmapdata, 0, bitmapdata.length);
+                        }
+                        v.setImageBitmap(bitmap);
+                    } else {
+                        v.setImageBitmap(AvatarService.get(conversation.getJid(), 50));
+                    }
+
                     return;
                 }
             }
+
+            actionBar.setDisplayShowTitleEnabled(true);
             actionBar.setTitle(R.string.app_name);
+            if(v != null){
+                v.setVisibility(INVISIBLE);
+                mTitleTextView.setVisibility(INVISIBLE);
+            }
             actionBar.setDisplayHomeAsUpEnabled(false);
         }
     }
