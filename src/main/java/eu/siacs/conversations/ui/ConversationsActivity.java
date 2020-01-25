@@ -575,6 +575,7 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         supportInvalidateOptionsMenu();
         ConversationsOverviewFragment fragment = (ConversationsOverviewFragment)
                 getFragmentManager().findFragmentById(R.id.main_fragment);
+        fragment.select(false);
         fragment.refresh();
     }
 
