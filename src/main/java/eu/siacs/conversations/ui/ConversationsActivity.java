@@ -53,6 +53,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -394,6 +395,14 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         if (!wipeActivated) {
             getMenuInflater().inflate(R.menu.activity_conversations, menu);
             AccountUtils.showHideMenuItems(menu);
+
+            MenuItem select_all_main = menu.findItem(R.id.select_all_main);
+            Fragment mainFragment = getFragmentManager().findFragmentById(R.id.main_fragment);
+            if(mainFragment instanceof ConversationFragment && select_all_main != null){
+                //disable select all button in conversation
+                select_all_main.setVisible(false);
+            }
+
             MenuItem qrCodeScanMenuItem = menu.findItem(R.id.action_scan_qr_code);
             if (qrCodeScanMenuItem != null) {
                 if (isCameraFeatureAvailable()) {
