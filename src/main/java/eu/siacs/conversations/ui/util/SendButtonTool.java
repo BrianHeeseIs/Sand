@@ -86,14 +86,11 @@ public class SendButtonTool {
 				switch (status) {
 					case CHAT:
 					case ONLINE:
-						return R.drawable.ic_send_text_online;
 					case AWAY:
-						return R.drawable.ic_send_text_away;
 					case XA:
 					case DND:
-						return R.drawable.ic_send_text_dnd;
 					default:
-						return getThemeResource(activity, R.attr.ic_send_text_offline, R.drawable.ic_send_text_offline);
+						return getThemeResource(activity, R.attr.ic_send_text_blue, R.drawable.ic_send_text_telegram_blue);
 				}
 			case RECORD_VIDEO:
 				switch (status) {

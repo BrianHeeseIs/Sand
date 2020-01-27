@@ -166,6 +166,9 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 	}
 
 	private void displayStatus(ViewHolder viewHolder, Message message, int type, boolean darkBackground) {
+		if(message.isRead() && viewHolder.messageRead != null) {
+			viewHolder.messageRead.setVisibility(View.VISIBLE);
+		}
 		String filesize = null;
 		String info = null;
 		boolean error = false;
@@ -635,6 +638,7 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 					viewHolder.messageBody = view.findViewById(R.id.message_body);
 					viewHolder.time = view.findViewById(R.id.message_time);
 					viewHolder.indicatorReceived = view.findViewById(R.id.indicator_received);
+					viewHolder.messageRead = view.findViewById(R.id.message_read);
 					viewHolder.audioPlayer = view.findViewById(R.id.audio_player);
 					break;
 				case RECEIVED:
@@ -648,6 +652,7 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 					viewHolder.messageBody = view.findViewById(R.id.message_body);
 					viewHolder.time = view.findViewById(R.id.message_time);
 					viewHolder.indicatorReceived = view.findViewById(R.id.indicator_received);
+					viewHolder.messageRead = view.findViewById(R.id.message_read);
 					viewHolder.encryption = view.findViewById(R.id.message_encryption);
 					viewHolder.audioPlayer = view.findViewById(R.id.audio_player);
 					break;
@@ -954,6 +959,7 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 		protected ImageView image;
 		protected ImageView indicator;
 		protected ImageView indicatorReceived;
+		protected ImageView messageRead;
 		protected TextView time;
 		protected CopyTextView messageBody;
 		protected ImageView contact_picture;

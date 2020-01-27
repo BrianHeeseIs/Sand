@@ -204,6 +204,7 @@
         <item type="reference" name="ic_send_photo_offline">@drawable/ic_send_photo_offline_white</item>
         <item type="reference" name="ic_send_picture_offline">@drawable/ic_send_picture_offline_white</item>
         <item type="reference" name="ic_send_text_offline">@drawable/ic_send_text_offline_white</item>
+        <item type="reference" name="ic_send_text_blue">@drawable/ic_send_text_telegram_blue</item>
         <item type="reference" name="ic_send_videocam_offline">@drawable/ic_send_videocam_offline_white</item>
         <item type="reference" name="ic_send_voice_offline">@drawable/ic_send_voice_offline_white</item>
 
