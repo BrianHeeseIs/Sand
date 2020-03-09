@@ -178,4 +178,6 @@
   <string name="no_microphone_permission">پیام رسان نیاز به دسترسی به میکروفون دارد</string>
   <string name="search_messages">جستجو در پیام ها</string>
   <string name="view_conversation">مشاهده گفتگو</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

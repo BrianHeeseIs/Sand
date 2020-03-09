@@ -873,4 +873,6 @@
   <string name="account_already_setup">Esta conta já foi configurada</string>
   <string name="please_enter_password">Por favor, digite a senha para esta conta</string>
   <string name="unable_to_perform_this_action">Não foi possível executar essa ação</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

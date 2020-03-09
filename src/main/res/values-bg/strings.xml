@@ -781,4 +781,6 @@
   <string name="restore_warning">Не използвайте възможността за възстановяване от резервно копие, за да клонирате (да изпълнявате едновременно) инсталацията. Възстановяването от резервно копие е предназначено за мигриране или в случай, че сте загубили устройството си.</string>
   <string name="unable_to_restore_backup">Не може да се направи възстановяване от резервно копие.</string>
   <string name="unable_to_decrypt_backup">Резервното копие не може да бъде дешифрирано. Правилна ли е паролата?</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

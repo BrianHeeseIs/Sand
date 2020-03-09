@@ -874,4 +874,6 @@
   <string name="please_enter_password">Mesedez idatzi ezazu kontu honetarako pasahitza</string>
   <string name="unable_to_perform_this_action">Ezin izan da ekintza hau burutu</string>
   <string name="open_join_dialog">Kanal publiko batean sartu…</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

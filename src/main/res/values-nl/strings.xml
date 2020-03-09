@@ -876,4 +876,6 @@
   <string name="please_enter_password">Voer het wachtwoord voor deze account in</string>
   <string name="unable_to_perform_this_action">Kan deze actie niet uitvoeren</string>
   <string name="open_join_dialog">Deelnemen aan openbaar kanaal…</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

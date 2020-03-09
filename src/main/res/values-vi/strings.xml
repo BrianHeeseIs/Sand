@@ -373,4 +373,6 @@
   <string name="battery_optimizations_enabled_dialog">Thiết bị đang thực hiện tối ưu hoá pin trên Conversations và nó có thể gây trì hoãn thông báo hay thậm chí làm mất tin nhắn.\n\nBây giờ, bạn sẽ được yêu cầu tắt chế độ đó đi.</string>
   <string name="disable">Tắt</string>
   <string name="selection_too_large">Khu vực chọn quá lớn</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

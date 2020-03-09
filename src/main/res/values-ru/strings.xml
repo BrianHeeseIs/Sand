@@ -700,4 +700,6 @@
   <string name="discover_channels">Найти каналы</string>
   <string name="i_already_have_an_account">У меня уже есть аккаунт</string>
   <string name="add_existing_account">Добавить существующий аккаунт</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

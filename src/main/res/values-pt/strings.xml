@@ -489,4 +489,6 @@
   <string name="show_error_message">Mostrar mensagem de erro</string>
   <string name="error_message">Mensagem de Erro</string>
   <string name="data_saver_enabled">Poupança de dados ligada</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

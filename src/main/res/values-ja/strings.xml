@@ -659,4 +659,6 @@
   <string name="create_dialog_channel_name">チャンネル名</string>
   <string name="xmpp_address">XMPP アドレス</string>
   <string name="channel_already_exists">このチャンネルは既に存在しています</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

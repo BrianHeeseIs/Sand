@@ -706,4 +706,6 @@ que l\'administrador del servidor llegeixi els missatges, però pot ser l\'únic
   <string name="providing_a_name_is_optional">Proporcionar un nom és opcional</string>
   <string name="create_dialog_group_chat_name">Nom del xat en grup</string>
   <string name="conference_destroyed">Aquest xat en grup ha estat destruït</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

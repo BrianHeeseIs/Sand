@@ -522,4 +522,6 @@
   <string name="medium">適中</string>
   <string name="large">大</string>
   <string name="search_messages">搜尋訊息</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

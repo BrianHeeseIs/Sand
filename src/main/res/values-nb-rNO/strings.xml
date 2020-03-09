@@ -563,4 +563,6 @@
   <string name="private_messages_are_disabled">Private meldinger er skrudd av</string>
   <string name="huawei_protected_apps">Beskyttede programmer</string>
   <string name="huawei_protected_apps_summary">For å motta merknader, selv når skjermen er skrudd av, må du legge til Conversations i listen over beskyttede programmer.</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

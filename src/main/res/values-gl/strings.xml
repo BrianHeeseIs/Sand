@@ -874,4 +874,6 @@
   <string name="please_enter_password">Introduza o contrasinal de esta conta</string>
   <string name="unable_to_perform_this_action">Non se puido completar a acción</string>
   <string name="open_join_dialog">Unirse a canle pública...</string>
+    <string name="default_settings">Default Settings</string>
+  <string name="summary_default_settings">By default settings</string>
 </resources>

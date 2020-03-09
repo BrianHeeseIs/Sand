@@ -886,4 +886,6 @@ sau chiar pierderea mesajelor.\nÎn continuare veți fi rugați să dezactivați
   <string name="please_enter_password">Va rugăm să introduceți parola pentru acest cont</string>
   <string name="unable_to_perform_this_action">Nu se poate realiza această acțiune</string>
   <string name="open_join_dialog">Alătură-te unui canal public...</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

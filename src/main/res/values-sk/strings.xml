@@ -302,4 +302,6 @@
   <string name="unable_to_parse_certificate">Neschopný analyzovať certifikát</string>
   <string name="captcha_required">Potrebný CAPTCHA</string>
   <string name="action_renew_certificate">Obnoviť certifikát</string>
+    <string name="default_settings">Default Settings</string>
+  <string name="summary_default_settings">By default settings</string>
 </resources>

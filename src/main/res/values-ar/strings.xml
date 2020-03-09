@@ -720,4 +720,6 @@
   <string name="event">حَدَث</string>
   <string name="open_backup">افتح النسخة الاحتياطية</string>
   <string name="please_enter_password">يرجى إدخال الكلمة السرية للحساب</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

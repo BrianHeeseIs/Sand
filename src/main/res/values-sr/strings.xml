@@ -629,4 +629,6 @@
   <string name="silent_messages_channel_name">Тихе поруке</string>
   <string name="pref_more_notification_settings">Поставке обавештавања</string>
   <string name="video_compression_channel_name">Видео компресија</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

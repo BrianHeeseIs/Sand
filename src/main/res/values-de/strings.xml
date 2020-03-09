@@ -876,4 +876,6 @@
   <string name="please_enter_password">Bitte gib das Passwort für dieses Konto ein</string>
   <string name="unable_to_perform_this_action">Diese Aktion kann nicht ausgeführt werden</string>
   <string name="open_join_dialog">Öffentlichen Channel beitreten...</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>
