@@ -3,7 +3,6 @@
     <string name="pick_a_server">Pick your XMPP provider</string>
     <string name="use_conversations.im">Use conversations.im</string>
     <string name="create_new_account">Create new account</string>
-    <string name="do_you_have_an_account">Do you already have an Sand account? If not you can create a new Sand account right now.</string>
-    <string name="server_select_text">XMPP is a provider independent instant messaging network. You can use this client with what ever XMPP server you choose.\nHowever for your convenience we made it easy to create an account on conversations.im¹; a provider specially suited for the use with Conversations.</string>
-
+    <string name="do_you_have_an_account">Secure, encrypted, anonymous messaging. \n - There are no logs kept on our server. \n - Keys are kept only on users devices. \n - As our server runs over V3 TOR users must have orbot \n running to connect to the server.</string>
+    <string name="server_select_text">XMPP is a provider independent instant messaging network. You can use this client with what ever XMPP server you choose.</string>
 </resources>
