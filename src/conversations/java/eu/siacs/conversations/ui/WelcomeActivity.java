@@ -24,7 +24,6 @@ public class WelcomeActivity extends XmppActivity {
 
     private static final int REQUEST_IMPORT_BACKUP = 0x63fb;
     public static final String LOCKED = "locked";
-    private boolean pinLocked = false;
 
     @Override
     protected void refreshUiReal() {
@@ -58,18 +57,6 @@ public class WelcomeActivity extends XmppActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
         super.onCreate(savedInstanceState);
-        Bundle b = getIntent().getExtras();
-
-        if (!pinLocked){
-            if(b != null && b.getBoolean(LOCKED)){
-
-            } else {
-                pinLocked = true;
-                startActivity(new Intent(this, PinLockActivity.class));
-            }
-        }
-
-
         ActivityWelcomeBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_welcome);
         setSupportActionBar((Toolbar) binding.toolbar);
         configureActionBar(getSupportActionBar(), false);
