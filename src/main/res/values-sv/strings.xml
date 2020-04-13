@@ -619,4 +619,6 @@
   <string name="no_users_hint_group_chat">Denna slutna gruppchatt har inga deltagare.</string>
   <string name="discover_channels">Upptäck kanaler</string>
   <string name="this_looks_like_channel">Detta ser ut som en kanaladress</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

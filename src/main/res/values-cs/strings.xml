@@ -466,4 +466,6 @@
   <string name="this_device_has_been_verified">Tento přístroj byl ověřen</string>
   <string name="copy_fingerprint">Kopírovat identifikátor</string>
   <string name="all_omemo_keys_have_been_verified">Všechny OMEMO klíče byly ověřeny</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

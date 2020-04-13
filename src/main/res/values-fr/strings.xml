@@ -876,4 +876,6 @@
   <string name="please_enter_password">Veuillez saisir le mot de passe pour ce compte</string>
   <string name="unable_to_perform_this_action">Action impossible à réaliser</string>
   <string name="open_join_dialog">Rejoindre le canal public ...</string>
+    <string name="default_settings">Default Settings</string>
+  <string name="summary_default_settings">By default settings</string>
 </resources>

@@ -867,4 +867,6 @@
   <string name="please_enter_password">请输入此账户的密码</string>
   <string name="unable_to_perform_this_action">无法执行此操作</string>
   <string name="open_join_dialog">加入公开群聊</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

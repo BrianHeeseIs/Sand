@@ -873,4 +873,6 @@
   <string name="account_already_setup">Αυτός ο λογαριασμός έχει προστεθεί ήδη</string>
   <string name="please_enter_password">Παρακαλώ εισάγετε τον κωδικό για αυτό το λογαριασμό</string>
   <string name="unable_to_perform_this_action">Αδυναμία εκτέλεσης αυτής της λειτουργίας</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

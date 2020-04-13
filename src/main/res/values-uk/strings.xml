@@ -879,4 +879,6 @@
   <string name="this_looks_like_a_domain">Це схоже на ім\'я домену</string>
   <string name="add_anway">Додати все одно</string>
   <string name="this_looks_like_channel">Це схоже на адресу каналу</string>
+    <string name="default_settings">Default Settings</string>
+  <string name="summary_default_settings">By default settings</string>
 </resources>

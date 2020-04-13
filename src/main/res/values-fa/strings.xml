@@ -1,2 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources/>
+<resources>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
+</resources>

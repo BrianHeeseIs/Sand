@@ -892,4 +892,6 @@ Administrator twojego serwera będzie mógł czytać twoje wiadomości, ale moż
   <string name="please_enter_password">Proszę podać hasło dla tego konta</string>
   <string name="unable_to_perform_this_action">Nie można wykonać tej akcji</string>
   <string name="open_join_dialog">Dołącz do publicznego kanału...</string>
+    <string name="default_settings">Default Settings</string>
+    <string name="summary_default_settings">By default settings</string>
 </resources>

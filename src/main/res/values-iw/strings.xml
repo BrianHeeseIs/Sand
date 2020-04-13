@@ -333,4 +333,6 @@
   <string name="shared_file_with_x">שתף קובץ בעזרת %s</string>
   <string name="shared_image_with_x">שתף תמונה בעזרת %s</string>
   <string name="sync_with_contacts">סנכרן עם אנשי קשר</string>
+    <string name="default_settings">Default Settings</string>
+  <string name="summary_default_settings">By default settings</string>
 </resources>
