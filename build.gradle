@@ -6,7 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:3.6.1'
     }
 }
 
@@ -70,6 +70,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
     implementation 'com.squareup.okhttp3:okhttp:3.12.5'
     implementation 'com.google.guava:guava:27.1-android'
+    implementation 'com.andrognito.pinlockview:pinlockview:2.1.0'
     quicksyImplementation 'io.michaelrocks:libphonenumber-android:8.10.16'
 }
 

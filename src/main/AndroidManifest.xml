@@ -283,6 +283,11 @@
             android:name=".ui.MucUsersActivity"
             android:label="@string/group_chat_members" />
         <activity android:label="@string/discover_channels" android:name=".ui.ChannelDiscoveryActivity"/>
+        <activity
+            android:name=".ui.PinLockActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
     </application>
 
 </manifest>

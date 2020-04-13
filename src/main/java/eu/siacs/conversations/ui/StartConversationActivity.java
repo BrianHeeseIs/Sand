@@ -1202,7 +1202,7 @@ public class StartConversationActivity extends XmppActivity implements XmppConne
 
 		ListPagerAdapter(FragmentManager fm) {
 			fragmentManager = fm;
-			fragments = new MyListFragment[2];
+			fragments = new MyListFragment[1];
 		}
 
 		public void requestFocus(int pos) {
@@ -1249,8 +1249,6 @@ public class StartConversationActivity extends XmppActivity implements XmppConne
 			switch (position) {
 				case 0:
 					return getResources().getString(R.string.contacts);
-				case 1:
-					return getResources().getString(R.string.bookmarks);
 				default:
 					return super.getPageTitle(position);
 			}
@@ -1259,11 +1257,7 @@ public class StartConversationActivity extends XmppActivity implements XmppConne
 		Fragment getItem(int position) {
 			if (fragments[position] == null) {
 				final MyListFragment listFragment = new MyListFragment();
-				if (position == 1) {
-					listFragment.setListAdapter(mConferenceAdapter);
-					listFragment.setContextMenu(R.menu.conference_context);
-					listFragment.setOnListItemClickListener((arg0, arg1, p, arg3) -> openConversationForBookmark(p));
-				} else {
+				if (position == 0) {
 					listFragment.setListAdapter(mContactsAdapter);
 					listFragment.setContextMenu(R.menu.contact_context);
 					listFragment.setOnListItemClickListener((arg0, arg1, p, arg3) -> openConversationForContact(p));
