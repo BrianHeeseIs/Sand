@@ -540,7 +540,7 @@
     <string name="install_orbot">Install Orbot</string>
     <string name="start_orbot">Start Orbot</string>
     <string name="use_own_provider">Use my own provider</string>
-    <string name="pick_your_username">Pick your username</string>
+    <string name="pick_your_username">Choose your username</string>
     <string name="pref_manually_change_presence">Manage availability manually</string>
     <string name="pref_manually_change_presence_summary">Set your availability when editing your status message.</string>
     <string name="status_message">Status message</string>
