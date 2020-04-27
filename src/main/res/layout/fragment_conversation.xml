@@ -123,6 +123,7 @@
                 android:layout_centerVertical="true"
                 android:background="?attr/color_background_primary"
                 android:contentDescription="@string/send_message"
+                android:paddingRight="10dp"
                 android:src="@drawable/ic_send_text_telegram_blue" />
         </RelativeLayout>
 
