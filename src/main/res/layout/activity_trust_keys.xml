@@ -13,8 +13,9 @@
         <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/button_bar"
             android:layout_below="@id/toolbar"
-            android:layout_above="@+id/button_bar">
+            android:background="@color/grey300">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -25,65 +26,69 @@
                     android:id="@+id/key_error_message_card"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/card_padding_regular">
 
-                        <TextView
-                            android:id="@+id/key_error_message_title"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/error_trustkeys_title"
-                            android:textAppearance="@style/TextAppearance.Conversations.Title"
-                            android:layout_marginBottom="8sp"/>
+                            android:orientation="vertical"
+                            android:padding="@dimen/card_padding_regular">
 
-                        <TextView
-                            android:id="@+id/key_error_message"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.Conversations.Subhead"/>
-                        <TextView
-                            android:id="@+id/key_error_general"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
-                        <TextView
-                            android:layout_marginTop="8sp"
-                            android:id="@+id/key_error_hint_mutual"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.Conversations.Body1.Secondary"
-                            android:text="@string/error_trustkey_hint_mutual"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:gravity="right">
+                            <TextView
+                                android:id="@+id/key_error_message_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8sp"
+                                android:text="@string/error_trustkeys_title"
+                                android:textAppearance="@style/TextAppearance.Conversations.Title" />
 
-                        <Button
-                            android:id="@+id/disable_button"
-                            style="@style/Widget.Conversations.Button.Borderless"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/key_error_message"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="@style/TextAppearance.Conversations.Subhead" />
+
+                            <TextView
+                                android:id="@+id/key_error_general"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="@style/TextAppearance.Conversations.Body1" />
+
+                            <TextView
+                                android:id="@+id/key_error_hint_mutual"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8sp"
+                                android:text="@string/error_trustkey_hint_mutual"
+                                android:textAppearance="@style/TextAppearance.Conversations.Body1.Secondary" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:minWidth="0dp"
-                            android:paddingLeft="16dp"
-                            android:paddingRight="16dp"
-                            android:text="@string/disable_encryption"
-                            android:textColor="?colorAccent"/>
-                    </LinearLayout>
+                            android:layout_gravity="right"
+                            android:gravity="right">
+
+                            <Button
+                                android:id="@+id/disable_button"
+                                style="@style/Widget.Conversations.Button.Borderless"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:minWidth="0dp"
+                                android:paddingLeft="16dp"
+                                android:paddingRight="16dp"
+                                android:text="@string/disable_encryption"
+                                android:textColor="?colorAccent" />
+                        </LinearLayout>
                     </LinearLayout>
 
                 </android.support.v7.widget.CardView>
@@ -92,10 +97,10 @@
                     android:id="@+id/own_keys_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:visibility="gone">
 
                     <LinearLayout
@@ -109,13 +114,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/list_padding"
-                            android:textAppearance="@style/TextAppearance.Conversations.Title"/>
+                            android:textAppearance="@style/TextAppearance.Conversations.Title" />
 
                         <LinearLayout
                             android:id="@+id/own_keys_details"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"/>
+                            android:orientation="vertical" />
                     </LinearLayout>
 
                 </android.support.v7.widget.CardView>
