@@ -5,6 +5,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/grey300"
         android:orientation="vertical"
         android:padding="?dialogPreferredPadding">
 
@@ -24,7 +25,7 @@
                 android:ems="10"
                 android:inputType="textPersonName">
 
-                <requestFocus/>
+                <requestFocus />
             </eu.siacs.conversations.ui.widget.EmojiWrapperEditText>
 
         </android.support.design.widget.TextInputLayout>

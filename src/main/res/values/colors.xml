@@ -41,10 +41,10 @@
 
  	<!-- Custom Colors for Sand -->
 	<color name="dark_blue">#517CA2</color>
-	<color name="dark_blue_dark">#122341</color>
+	<color name="dark_blue_dark">#1f3860</color>
 
     <color name="telegram_blue">#517CA2</color>
-    <color name="telegram_blue_dark">#122341</color>
+    <color name="telegram_blue_dark">#1f3860</color>
 	<color name="telegram_blue_light">#517CA2</color>
 	<color name="conversation_background">#D1D8E0</color>
 </resources>
