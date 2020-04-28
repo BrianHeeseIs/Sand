@@ -88,7 +88,7 @@
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/media_preview"
-                    android:layout_width="wrap_content"
+                    android:layout_width="5dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="8dp"
@@ -102,16 +102,18 @@
                 <eu.siacs.conversations.ui.widget.EditMessage
                     android:id="@+id/textinput"
                     style="@style/Widget.Conversations.EditText"
-                    android:layout_width="373dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="375dp"
+                    android:layout_height="match_parent"
                     android:background="@color/grey50"
-                    android:ems="10"
+                    android:clickable="false"
+                    android:ems="0"
                     android:imeOptions="flagNoExtractUi|actionSend"
                     android:inputType="textShortMessage|textMultiLine|textCapSentences"
                     android:maxLines="8"
                     android:minHeight="48dp"
                     android:minLines="1"
-                    android:padding="8dp">
+                    android:padding="0dp"
+                    android:paddingLeft="0dp">
 
                     <requestFocus />
                 </eu.siacs.conversations.ui.widget.EditMessage>
