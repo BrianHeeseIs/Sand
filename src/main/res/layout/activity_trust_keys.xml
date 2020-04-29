@@ -153,7 +153,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/cancel"/>
+                android:background="@color/grey50"
+                android:text="@string/cancel"
+                android:textColor="@color/white87" />
 
             <View
                 android:layout_width="1dp"
@@ -168,8 +170,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/grey50"
                 android:enabled="true"
-                android:text="@string/done"/>
+                android:text="@string/done"
+                android:textColor="@color/white87" />
         </LinearLayout>
     </RelativeLayout>
 </layout>

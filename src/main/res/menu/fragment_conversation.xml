@@ -63,8 +63,8 @@
     <item
         android:id="@+id/action_contact_details"
         android:orderInCategory="40"
-        app:showAsAction="never"
-        android:title="@string/action_contact_details"/>
+        android:title="@string/action_contact_details"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_muc_details"
         android:icon="?attr/icon_group"
