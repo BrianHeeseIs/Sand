@@ -215,8 +215,8 @@
         <item type="reference" name="ic_attach_photo">@drawable/ic_attach_photo_white</item>
         <item type="reference" name="ic_attach_record">@drawable/ic_attach_record_white</item>
 
-        <item type="reference" name="message_bubble_received_monochrome">@drawable/message_bubble_received_grey</item>
-        <item type="reference" name="message_bubble_sent">@drawable/message_bubble_sent_grey</item>
+        <item type="reference" name="message_bubble_received_monochrome">@drawable/message_bubble_received_blue</item>
+        <item type="reference" name="message_bubble_sent">@drawable/message_bubble_sent_blue</item>
         <item type="reference" name="message_bubble_received_green">@drawable/message_bubble_received_dark</item>
 
         <item name="unread_count">@color/green900_desaturated</item>
