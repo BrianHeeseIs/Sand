@@ -423,7 +423,7 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 			viewHolder.messageBody.setTextAppearance(getContext(), R.style.TextAppearance_Conversations_Body1);
 		}
 		viewHolder.messageBody.setHighlightColor(ContextCompat.getColor(activity, darkBackground
-				? (type == SENT || !mUseGreenBackground ? R.color.black26 : R.color.grey800) : R.color.grey500));
+				? (type == SENT || !mUseGreenBackground ? R.color.black26 : R.color.grey800) : R.color.bluemainlight0));
 		viewHolder.messageBody.setTypeface(null, Typeface.NORMAL);
 
 		if (message.getBody() != null) {

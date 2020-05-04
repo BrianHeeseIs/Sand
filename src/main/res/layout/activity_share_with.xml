@@ -12,8 +12,8 @@
         android:id="@+id/choose_conversation_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey300"
-        android:divider="@android:color/transparent"
+        android:background="@color/bluemain"
+        android:divider="@color/bluemain"
         android:dividerHeight="0dp"
         tools:listitem="@layout/conversation_list_row" />
 

@@ -5,16 +5,19 @@
     <item
         android:id="@+id/action_search"
         android:icon="?attr/icon_search"
+        android:background="#ffffff"
         android:title="@string/search"
         app:actionLayout="@layout/actionview_search"
         app:showAsAction="collapseActionView|always" />
     <item
         android:id="@+id/action_accounts"
+        android:background="#ffffff"
         android:orderInCategory="90"
         android:title="@string/action_accounts"
         app:showAsAction="never"/>
     <item
         android:id="@+id/action_settings"
+        android:background="#ffffff"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />

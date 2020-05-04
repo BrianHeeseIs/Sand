@@ -9,11 +9,11 @@
 	<color name="white87">#deffffff</color>
 	<color name="white70">#b2ffffff</color>
 	<color name="white12">#152340</color>
-	<color name="grey50">#1f3860</color>
+	<color name="bluemainlight">#1f3860</color>
 	<color name="grey200">#182842</color>
-	<color name="grey300">#152340</color>
+	<color name="bluemain">#152340</color>
 	<color name="grey300_40">#182842</color>
-	<color name="grey500">#152340</color>
+	<color name="bluemainlight0">#152340</color>
 	<color name="grey700">#152340</color>
 	<color name="grey700_40">#152340</color>
 	<color name="grey800">#152340</color>
@@ -42,9 +42,10 @@
  	<!-- Custom Colors for Sand -->
 	<color name="dark_blue">#517CA2</color>
 	<color name="dark_blue_dark">#122341</color>
-
     <color name="telegram_blue">#517CA2</color>
     <color name="telegram_blue_dark">#1f3860</color>
+	<color name="menubackgroundfix">#1f3860</color>
 	<color name="telegram_blue_light">#517CA2</color>
+
 	<color name="conversation_background">#D1D8E0</color>
 </resources>
