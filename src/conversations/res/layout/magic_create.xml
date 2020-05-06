@@ -22,14 +22,14 @@
                 android:layout_above="@+id/linearLayout"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:background="#122341">
+                android:background="#15151C">
 
                 <ImageView
                     android:id="@+id/imageView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:background="#122341"
+                    android:background="@color/newgreydark"
                     android:src="@drawable/main_logo" />
             </RelativeLayout>
 
@@ -40,7 +40,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                android:background="#122341"
+                android:background="@color/newgreydark"
                 android:minHeight="256dp"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
@@ -51,14 +51,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="#122341" />
+                    android:background="#15151C" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/pick_your_username"
                     android:textAppearance="@style/TextAppearance.Conversations.Title"
-                    android:textColor="#F2F9FF" />
+                    android:textColor="@color/telegram_blue" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
                     android:layout_marginTop="8dp"
                     android:text="@string/magic_create_text"
                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                    android:textColor="#FCFDFF" />
+                    android:textColor="@color/newwhitetext" />
 
                 <EditText
                     android:id="@+id/username"
@@ -75,8 +75,8 @@
                     android:layout_gravity="center_horizontal"
                     android:hint="@string/username_hint"
                     android:inputType="textNoSuggestions"
-                    android:textColor="#F2F9FF"
-                    android:textColorHint="#FFFFFF" />
+                    android:textColor="@color/telegram_blue"
+                    android:textColorHint="@color/newwhitetext" />
 
                 <TextView
                     android:id="@+id/full_jid"
@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:text="@string/next"
-                    android:textColor="?colorAccent" />
+                    android:textColor="@color/telegram_blue" />
             </LinearLayout>
 
             <!--            <TextView-->

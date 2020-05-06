@@ -26,14 +26,14 @@
                     android:layout_above="@+id/linearLayout"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="false"
-                    android:background="#122341">
+                    android:background="#15151C">
 
                     <ImageView
                         android:id="@+id/imageView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:background="#122341"
+                        android:background="@color/newgreydark"
                         android:src="@drawable/main_logo" />
                 </RelativeLayout>
 
@@ -44,7 +44,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentBottom="true"
-                    android:background="#122341"
+                    android:background="@color/newgreydark"
                     android:minHeight="256dp"
                     android:orientation="vertical"
                     android:paddingLeft="16dp"
@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/welcome_header"
                         android:textAppearance="@style/TextAppearance.Conversations.Title"
-                        android:textColor="#F5FBFB" />
+                        android:textColor="@color/blue500" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
                         android:autoText="false"
                         android:text="@string/do_you_have_an_account"
                         android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                        android:textColor="#F5FBFB" />
+                        android:textColor="#C5C2C2" />
 
                     <Button
                         android:id="@+id/register_new_account"
@@ -79,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center|right"
                         android:text="@string/create_new_account"
-                        android:textColor="@color/telegram_blue_light" />
+                        android:textColor="@color/blue500" />
 
                     <Button
                         android:id="@+id/use_existing"
@@ -88,7 +88,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center|right"
                         android:text="@string/i_already_have_an_account"
-                        android:textColor="@color/telegram_blue" />
+                        android:textColor="@color/blue500" />
 
                 </LinearLayout>
 
