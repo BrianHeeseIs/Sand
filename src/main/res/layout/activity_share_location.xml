@@ -25,7 +25,7 @@
                 android:id="@+id/map"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/grey300" />
+                android:background="@color/bluemain" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab"
@@ -59,7 +59,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/cancel" />
+                android:background="@color/bluemainlight"
+                android:text="@string/cancel"
+                android:textColor="@color/white87" />
 
             <View
                 android:layout_width="1dp"
@@ -74,7 +76,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/share" />
+                android:background="@color/bluemainlight"
+                android:text="@string/share"
+                android:textColor="@color/white87" />
         </LinearLayout>
 
     </RelativeLayout>

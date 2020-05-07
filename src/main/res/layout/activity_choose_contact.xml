@@ -19,8 +19,8 @@
                 android:id="@+id/choose_contact_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/grey300"
-                android:divider="@android:color/transparent"
+                android:background="@color/bluemain"
+                android:divider="@color/bluemainlight"
                 android:dividerHeight="0dp" />
 
             <android.support.design.widget.FloatingActionButton

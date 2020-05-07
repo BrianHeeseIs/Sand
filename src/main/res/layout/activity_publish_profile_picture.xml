@@ -20,7 +20,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/grey50"
+                android:background="@color/bluemainlight"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -77,7 +77,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/cancel"/>
+                android:background="@color/bluemainlight"
+                android:text="@string/cancel"
+                android:textColor="@color/white87" />
 
             <View
                 android:layout_width="1dp"
@@ -92,8 +94,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/bluemainlight"
                 android:enabled="false"
-                android:text="@string/publish"/>
+                android:text="@string/publish"
+                android:textColor="@color/white87" />
         </LinearLayout>
 
     </RelativeLayout>
