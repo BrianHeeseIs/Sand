@@ -70,7 +70,7 @@
                         android:autoText="false"
                         android:text="@string/do_you_have_an_account"
                         android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                        android:textColor="#C5C2C2" />
+                        android:textColor="#FDFDFD" />
 
                     <Button
                         android:id="@+id/register_new_account"

@@ -5,10 +5,10 @@
 	<color name="black54">#8a000000</color>
 	<color name="black26">@color/bluemain</color>
 	<color name="black12">@color/bluemain</color>
-	<color name="white">#C5C2C2</color>
-	<color name="white87">#C5C2C2</color>
-	<color name="white70">#C5C2C2</color>
-	<color name="white12">#C5C2C2</color>
+	<color name="white">#FDFDFD</color>
+	<color name="white87">#FDFDFD</color>
+	<color name="white70">#FDFDFD</color>
+	<color name="white12">#FDFDFD</color>
 	<color name="bluemainlight">#1f3860</color>
 	<color name="grey200">@color/bluemain</color>
 	<color name="bluemain">#152340</color>
@@ -50,7 +50,7 @@
 	<color name="newgreydark">#15151C</color>
 	<color name="newgreylight">#2B2B34</color>
 	<color name="newblue">#517CA2</color>
-	<color name="newwhitetext">#C5C2C2</color>
+	<color name="newwhitetext">#FDFDFD</color>
 
 	<color name="conversation_background">#D1D8E0</color>
 </resources>
