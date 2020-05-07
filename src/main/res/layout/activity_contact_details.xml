@@ -16,7 +16,7 @@
         <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@color/bluemain">
+            android:background="@color/grey300">
 
             <LinearLayout
                 android:id="@+id/details_main_layout"
@@ -35,7 +35,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/bluemain"
+                        android:background="@color/grey300"
                         android:padding="@dimen/card_padding_regular">
 
                         <com.makeramen.roundedimageview.RoundedImageView
@@ -136,7 +136,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/bluemain"
+                        android:background="@color/grey300"
                         android:orientation="vertical">
 
                         <android.support.v7.widget.RecyclerView
@@ -145,7 +145,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="-2dp"
                             android:layout_marginEnd="-2dp"
-                            android:background="@color/bluemain"
+                            android:background="@color/grey300"
                             android:orientation="horizontal"
                             android:paddingStart="@dimen/card_padding_regular"
                             android:paddingTop="@dimen/card_padding_regular"

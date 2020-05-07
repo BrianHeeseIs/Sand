@@ -34,11 +34,11 @@ public final class Config {
 
     public static final String LOGTAG = BuildConfig.LOGTAG;
 
-    public static final Jid BUG_REPORTS = Jid.of("bugs@sand.chat");
+    public static final Jid BUG_REPORTS = Jid.of("bugs@conversations.im");
 
 
-    public static final String DOMAIN_LOCK = "";
-    public static final String MAGIC_CREATE_DOMAIN = "";
+    public static final String DOMAIN_LOCK = "hrjw2trsi3x4cklpvxmyfbm5rv5bw5u7n6fy42vbgjzvdtl2xy4r2wad.onion";
+    public static final String MAGIC_CREATE_DOMAIN = "hrjw2trsi3x4cklpvxmyfbm5rv5bw5u7n6fy42vbgjzvdtl2xy4r2wad.onion";
     public static final String QUICKSY_DOMAIN = "quicksy.im";
 
     public static final String CHANNEL_DISCOVERY = "https://search.jabber.network";

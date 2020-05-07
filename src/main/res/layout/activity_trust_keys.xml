@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/button_bar"
             android:layout_below="@id/toolbar"
-            android:background="@color/bluemain">
+            android:background="@color/grey300">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -153,9 +153,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/bluemainlight"
-                android:text="@string/cancel"
-                android:textColor="@color/white87" />
+                android:text="@string/cancel"/>
 
             <View
                 android:layout_width="1dp"
@@ -170,10 +168,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/bluemainlight"
                 android:enabled="true"
-                android:text="@string/done"
-                android:textColor="@color/white87" />
+                android:text="@string/done"/>
         </LinearLayout>
     </RelativeLayout>
 </layout>

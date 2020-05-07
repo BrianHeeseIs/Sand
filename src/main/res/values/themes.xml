@@ -9,7 +9,7 @@
 
         <item name="color_background_primary">@color/white</item>
         <item name="color_background_secondary">@color/conversation_background</item>
-        <item name="color_background_tertiary">@color/bluemain</item>
+        <item name="color_background_tertiary">@color/grey300</item>
         <item name="color_background_overlay">@color/black12</item>
         <item name="color_warning">@color/red_a700</item>
         <item name="TextColorOnline">@color/green600</item>
@@ -144,7 +144,7 @@
         <item name="colorPrimary">@color/green600</item>
         <item name="colorPrimaryDark">@color/green700</item>
         <item name="colorAccent">@color/blue_a200</item>
-        <item name="color_background_primary">@color/bluemainlight</item>
+        <item name="color_background_primary">@color/grey50</item>
         <item name="divider">@color/black12</item>
         <item name="TextSizeTitle">18sp</item>
         <item name="TextSizeBody2">14sp</item>
@@ -215,8 +215,8 @@
         <item type="reference" name="ic_attach_photo">@drawable/ic_attach_photo_white</item>
         <item type="reference" name="ic_attach_record">@drawable/ic_attach_record_white</item>
 
-        <item type="reference" name="message_bubble_received_monochrome">@drawable/message_bubble_received_blue</item>
-        <item type="reference" name="message_bubble_sent">@drawable/message_bubble_sent_blue</item>
+        <item type="reference" name="message_bubble_received_monochrome">@drawable/message_bubble_received_grey</item>
+        <item type="reference" name="message_bubble_sent">@drawable/message_bubble_sent_grey</item>
         <item type="reference" name="message_bubble_received_green">@drawable/message_bubble_received_dark</item>
 
         <item name="unread_count">@color/green900_desaturated</item>
@@ -334,7 +334,7 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimaryDark">@color/bluemain</item>
+        <item name="colorPrimaryDark">@color/grey300</item>
         <item name="android:windowBackground">@drawable/background</item>
     </style>
 </resources>

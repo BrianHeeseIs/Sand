@@ -530,7 +530,7 @@
   <string name="share_uri_with">Compartir URI con...</string>
   <string name="welcome_text_quicksy"><![CDATA[Quicksy é un derivado do popular cliente XMPP Conversations con descubrimento automático de contactos.<br><br>Pode rexistrarse co seu número de teléfono e Quicksy suxeriralle automáticamente —tomando os números da súa libreta de enderezos como referencia—  posibles contactos para vostede.<br><br>Ao rexistarse vostede acepta a nosa <a href="https://quicksy.im/#privacy">política de intimidade</a>.]]></string>
   <string name="agree_and_continue">Aceptar &amp; continuar</string>
-  <string name="magic_create_text">Guiarémola a través do proceso de creación de unha conta enSand Chat TOR server.¹\nAo escoller aSand Chat TOR server como fornecedor poderá comunicar con usuarias de outros fornecedores proporcionándolles o seu enderezo XMPP completo.</string>
+  <string name="magic_create_text">Guiarémola a través do proceso de creación de unha conta en conversations.im.¹\nAo escoller a conversations.im como fornecedor poderá comunicar con usuarias de outros fornecedores proporcionándolles o seu enderezo XMPP completo.</string>
   <string name="your_full_jid_will_be">O seu enderezo XMPP completo será: %s</string>
   <string name="create_account">Crear conta</string>
   <string name="use_own_provider">Utilizar o meu propio proveedor</string>

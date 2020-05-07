@@ -3,21 +3,21 @@
 	<color name="black">#ff000000</color>
 	<color name="black87">#de000000</color>
 	<color name="black54">#8a000000</color>
-	<color name="black26">#15151C</color>
-	<color name="black12">#15151C</color>
-	<color name="white">#C5C2C2</color>
-	<color name="white87">#C5C2C2</color>
-	<color name="white70">#C5C2C2</color>
-	<color name="white12">#C5C2C2</color>
-	<color name="bluemainlight">#2B2B34</color>
-	<color name="grey200">#15151C</color>
-	<color name="bluemain">#15151C</color>
-	<color name="grey300_40">#15151C</color>
-	<color name="bluemainlight0">#15151C</color>
-	<color name="grey700">#15151C</color>
-	<color name="grey700_40">#15151C</color>
-	<color name="grey800">#15151C</color>
-	<color name="grey900">#15151C</color>
+	<color name="black26">#182842</color>
+	<color name="black12">#182842</color>
+	<color name="white">#ffffffff</color>
+	<color name="white87">#deffffff</color>
+	<color name="white70">#b2ffffff</color>
+	<color name="white12">#152340</color>
+	<color name="grey50">#1f3860</color>
+	<color name="grey200">#182842</color>
+	<color name="grey300">#152340</color>
+	<color name="grey300_40">#182842</color>
+	<color name="grey500">#152340</color>
+	<color name="grey700">#152340</color>
+	<color name="grey700_40">#152340</color>
+	<color name="grey800">#152340</color>
+	<color name="grey900">#152340</color>
 	<color name="red500">#fff44336</color>
 	<color name="red_a700">#ffd50000</color>
 	<color name="red_a100">#ffff8a80</color>
@@ -41,16 +41,10 @@
 
  	<!-- Custom Colors for Sand -->
 	<color name="dark_blue">#517CA2</color>
-	<color name="dark_blue_dark">#15151C</color>
+	<color name="dark_blue_dark">#122341</color>
+
     <color name="telegram_blue">#517CA2</color>
-    <color name="telegram_blue_dark">#2B2B34</color>
-	<color name="menubackgroundfix">#2B2B34</color>
+    <color name="telegram_blue_dark">#1f3860</color>
 	<color name="telegram_blue_light">#517CA2</color>
-
-	<color name="newgreydark">#15151C</color>
-	<color name="newgreylight">#2B2B34</color>
-	<color name="newblue">#517CA2</color>
-	<color name="newwhitetext">#C5C2C2</color>
-
 	<color name="conversation_background">#D1D8E0</color>
 </resources>

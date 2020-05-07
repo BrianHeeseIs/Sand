@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bluemain"
+    android:background="@color/grey300"
     android:orientation="vertical"
     android:paddingLeft="?attr/dialog_horizontal_padding"
     android:paddingTop="?attr/dialog_vertical_padding"

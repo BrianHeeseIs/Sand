@@ -25,14 +25,14 @@
                     android:layout_above="@+id/linearLayout"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
-                    android:background="#15151C">
+                    android:background="#122341">
 
                     <ImageView
                         android:id="@+id/imageView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:background="@color/newgreydark"
+                        android:background="#122341"
                         android:src="@drawable/main_logo" />
                 </RelativeLayout>
 
@@ -43,7 +43,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/newgreydark"
+                    android:background="#122341"
                     android:minHeight="256dp"
                     android:orientation="vertical"
                     android:paddingLeft="16dp"
@@ -60,7 +60,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/pick_a_server"
                         android:textAppearance="@style/TextAppearance.Conversations.Title"
-                        android:textColor="@color/blue500" />
+                        android:textColor="@color/white87" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
                         android:layout_marginTop="8dp"
                         android:text="@string/server_select_text"
                         android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                        android:textColor="#C5C2C2" />
+                        android:textColor="#FCFDFF" />
 
                     <Button
                         android:id="@+id/use_cim"
@@ -77,7 +77,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:text="@string/use_conversations.im"
-                        android:textColor="@color/blue500"
+                        android:textColor="@color/telegram_blue_light"
                         android:textColorHint="#FFFFFF"
                         android:visibility="visible" />
 

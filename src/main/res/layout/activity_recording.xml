@@ -18,9 +18,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/bluemainlight"
-                android:text="@string/cancel"
-                android:textColor="@color/white87" />
+                android:text="@string/cancel"/>
 
             <View
                 android:layout_width="1dp"
@@ -35,9 +33,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/bluemainlight"
-                android:text="@string/attach"
-                android:textColor="@color/white87" />
+                android:text="@string/attach"/>
         </LinearLayout>
 
         <TextView

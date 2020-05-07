@@ -4,7 +4,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/newgreylight"
+    android:background="@color/grey50"
     android:elevation="@dimen/toolbar_elevation"
     android:minHeight="?attr/actionBarSize"
     android:scrollbarThumbHorizontal="?android:attr/scrollbarThumbVertical"
