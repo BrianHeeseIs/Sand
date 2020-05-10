@@ -269,6 +269,7 @@ public class ConversationsOverviewFragment extends XmppFragment {
 		this.mSwipeEscapeVelocity = getResources().getDimension(R.dimen.swipe_escape_velocity);
 		this.binding = DataBindingUtil.inflate(inflater, R.layout.fragment_conversations_overview, container, false);
 		this.binding.fab.setOnClickListener((view) -> StartConversationActivity.launch(getActivity()));
+		this.binding.changePin.setOnClickListener((view) -> onChangePinClicked());
 
 		this.conversationsAdapter = new ConversationAdapter(this.activity, this.conversations);
 
@@ -292,6 +293,10 @@ public class ConversationsOverviewFragment extends XmppFragment {
 		this.binding.list.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
 		this.touchHelper.attachToRecyclerView(this.binding.list);
 		return binding.getRoot();
+	}
+
+	private void onChangePinClicked() {
+		startActivity(new Intent(this.activity, ChangePinActivity.class));
 	}
 
 	@Override
