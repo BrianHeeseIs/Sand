@@ -876,7 +876,7 @@ public abstract class XmppActivity extends ActionBarActivity {
 			imageView.setBackgroundColor(0x00000000);
 		} else {
 			if (cancelPotentialWork(message, imageView)) {
-				imageView.setBackgroundColor(0xff333333);
+				imageView.setBackgroundColor(0xff152742);
 				imageView.setImageDrawable(null);
 				final BitmapWorkerTask task = new BitmapWorkerTask(imageView);
 				final AsyncDrawable asyncDrawable = new AsyncDrawable(
@@ -959,7 +959,7 @@ public abstract class XmppActivity extends ActionBarActivity {
 				final ImageView imageView = imageViewReference.get();
 				if (imageView != null) {
 					imageView.setImageBitmap(bitmap);
-					imageView.setBackgroundColor(bitmap == null ? 0xff333333 : 0x00000000);
+					imageView.setBackgroundColor(bitmap == null ? 0xff152742 : 0x00000000);
 				}
 			}
 		}

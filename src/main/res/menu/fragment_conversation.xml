@@ -31,74 +31,88 @@
 
             <item
                 android:id="@+id/attach_choose_file"
+                android:background="#ffffff"
                 android:title="@string/choose_file"
                 android:icon="?attr/ic_attach_document"/>
 
             <item
                 android:id="@+id/attach_choose_picture"
+                android:background="#ffffff"
                 android:title="@string/attach_choose_picture"
                 android:icon="?attr/ic_attach_photo"/>
 
             <item
                 android:id="@+id/attach_take_picture"
+                android:background="#ffffff"
                 android:title="@string/attach_take_picture"
                 android:icon="?attr/ic_attach_camera"/>
 
             <item
                 android:id="@+id/attach_record_video"
+                android:background="#ffffff"
                 android:title="@string/attach_record_video"
                 android:icon="?attr/ic_attach_videocam"/>
 
             <item
                 android:id="@+id/attach_record_voice"
+                android:background="#ffffff"
                 android:title="@string/attach_record_voice"
                 android:icon="?attr/ic_attach_record"/>
 
             <item
                 android:id="@+id/attach_location"
+                android:background="#ffffff"
                 android:title="@string/send_location"
                 android:icon="?attr/ic_attach_location"/>
         </menu>
     </item>
     <item
         android:id="@+id/action_contact_details"
+        android:background="#ffffff"
         android:orderInCategory="40"
-        app:showAsAction="never"
-        android:title="@string/action_contact_details"/>
+        android:title="@string/action_contact_details"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_muc_details"
+        android:background="#ffffff"
         android:icon="?attr/icon_group"
         android:orderInCategory="40"
         app:showAsAction="never"
         android:title="@string/action_muc_details"/>
     <item
         android:id="@+id/action_invite"
+        android:background="#ffffff"
         android:orderInCategory="45"
         app:showAsAction="never"
         android:title="@string/invite_contact"/>
     <item
         android:id="@+id/action_clear_history"
+        android:background="#ffffff"
         android:orderInCategory="50"
         app:showAsAction="never"
         android:title="@string/action_clear_history"/>
     <item
         android:id="@+id/action_set_deletion_period"
+        android:background="#ffffff"
         android:orderInCategory="55"
         app:showAsAction="never"
         android:title="@string/action_set_deletion_period"/>
     <item
         android:id="@+id/action_archive"
+        android:background="#ffffff"
         android:orderInCategory="60"
         app:showAsAction="never"
         android:title="@string/action_end_conversation"/>
     <item
         android:id="@+id/action_mute"
+        android:background="#ffffff"
         android:orderInCategory="70"
         app:showAsAction="never"
         android:title="@string/disable_notifications"/>
 
     <item
         android:id="@+id/action_unmute"
+        android:background="#ffffff"
         android:orderInCategory="71"
         app:showAsAction="never"
         android:title="@string/enable_notifications"/>

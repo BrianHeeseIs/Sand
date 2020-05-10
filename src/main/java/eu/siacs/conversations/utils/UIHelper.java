@@ -98,8 +98,8 @@ public class UIHelper {
 
 			0xFF795548, //brown 500,
 			//0xFF4E342E, //brown 800
-			0xFF607D8B, //blue grey 500,
-			//0xFF37474F //blue grey 800
+			0xFF15151C, //blue grey 500,
+			//0xFF15151C //blue grey 800
 	};
 
 	private static final int[] COLORS;

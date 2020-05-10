@@ -19,6 +19,23 @@
                 android:layout_height="match_parent"
                 android:background="?attr/color_background_primary">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/linearLayout"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:background="@color/bluemain">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@color/bluemain"
+                        android:src="@drawable/main_logo" />
+                </RelativeLayout>
+
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
@@ -26,6 +43,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentBottom="true"
+                    android:background="@color/bluemain"
                     android:minHeight="256dp"
                     android:orientation="vertical"
                     android:paddingLeft="16dp"
@@ -41,23 +59,27 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/pick_a_server"
-                        android:textAppearance="@style/TextAppearance.Conversations.Title" />
+                        android:textAppearance="@style/TextAppearance.Conversations.Title"
+                        android:textColor="@color/blue500" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/server_select_text"
-                        android:textAppearance="@style/TextAppearance.Conversations.Body1" />
+                        android:textAppearance="@style/TextAppearance.Conversations.Body1"
+                        android:textColor="#FDFDFD" />
 
                     <Button
                         android:id="@+id/use_cim"
                         style="@style/Widget.Conversations.Button.Borderless"
-                        android:layout_width="wrap_content"
+                        android:layout_width="179dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:text="@string/use_conversations.im"
-                        android:textColor="?colorAccent" />
+                        android:textColor="@color/blue500"
+                        android:textColorHint="#FFFFFF"
+                        android:visibility="visible" />
 
                     <Button
                         android:id="@+id/use_own_provider"
@@ -66,36 +88,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:text="@string/use_own_provider"
-                        android:textColor="?android:textColorSecondary" />
+                        android:textColor="@color/telegram_blue_dark" />
                 </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_above="@+id/linearLayout"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:padding="8dp"
-                        android:src="@drawable/main_logo" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:maxLines="1"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:text="@string/free_for_six_month"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textSize="@dimen/fineprint_size" />
             </RelativeLayout>
         </ScrollView>
     </LinearLayout>

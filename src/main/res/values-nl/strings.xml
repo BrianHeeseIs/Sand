@@ -531,7 +531,7 @@
   <string name="share_uri_with">URI delen met…</string>
   <string name="welcome_text_quicksy"><![CDATA[Quicksy is een afgeleide van de populaire XMPP-cliënt Conversations, met automatische contactontdekking.<br><br>Je meldt je aan met je telefoonnummer en Quicksy zal automatisch—gebaseerd op de telefoonnummers in je adresboek—mogelijke contacten aanbevelen.<br><br>Door je aan te melden, stem je in met ons <a href="https://quicksy.im/#privacy">privacybeleid</a>.]]></string>
   <string name="agree_and_continue">Akkoord gaan &amp; doorgaan</string>
-  <string name="magic_create_text">We zullen je helpen een account op conversations.im¹ aan te maken.\nWanneer je conversations.im als je provider kiest kan je met gebruikers van andere providers communiceren door hen je volledige XMPP-adres te geven.</string>
+  <string name="magic_create_text">We zullen je helpen een account opSand Chat TOR server¹ aan te maken.\nWanneer jeSand Chat TOR server als je provider kiest kan je met gebruikers van andere providers communiceren door hen je volledige XMPP-adres te geven.</string>
   <string name="your_full_jid_will_be">Je volledige XMPP-adres zal %s zijn</string>
   <string name="create_account">Account aanmaken</string>
   <string name="use_own_provider">Gebruik mijn eigen provider</string>

@@ -11,8 +11,8 @@
         android:id="@+id/account_list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp" >
-    </ListView>
+        android:background="@color/bluemain"
+        android:divider="@color/bluemainlight"
+        android:dividerHeight="0dp"></ListView>
 
 </LinearLayout>
