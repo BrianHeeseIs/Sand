@@ -15,7 +15,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/button_bar"
-            android:layout_below="@id/toolbar">
+            android:layout_below="@id/toolbar"
+            android:background="@color/bluemain">
 
             <LinearLayout
                 android:id="@+id/account_main_layout"
@@ -28,15 +29,15 @@
                     android:id="@+id/editor"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:layout_marginTop="@dimen/activity_vertical_margin">
+                    android:layout_marginBottom="@dimen/activity_vertical_margin">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/card_padding_regular">
+                        android:background="@color/bluemain">
 
                         <com.makeramen.roundedimageview.RoundedImageView
                             android:id="@+id/avater"
@@ -47,8 +48,8 @@
                             android:contentDescription="@string/account_image_description"
                             app:riv_corner_radius="24dip"
                             app:riv_mutate_background="true"
-                            app:riv_tile_mode="repeat"
-                            app:riv_oval="true" />
+                            app:riv_oval="true"
+                            app:riv_tile_mode="repeat" />
 
                         <LinearLayout
                             android:layout_width="fill_parent"
@@ -61,17 +62,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/account_settings_jabber_id"
-                                app:hintTextAppearance="@style/TextAppearance.Conversations.Design.Hint"
-                                app:errorTextAppearance="@style/TextAppearance.Conversations.Design.Error">
+                                app:errorTextAppearance="@style/TextAppearance.Conversations.Design.Error"
+                                app:hintTextAppearance="@style/TextAppearance.Conversations.Design.Hint">
 
                                 <AutoCompleteTextView
                                     android:id="@+id/account_jid"
+                                    style="@style/Widget.Conversations.EditText"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:imeOptions="actionNext"
                                     android:inputType="textEmailAddress"
-                                    android:textColor="?attr/edit_text_color"
-                                    style="@style/Widget.Conversations.EditText"/>
+                                    android:textColor="@color/white87" />
                             </android.support.design.widget.TextInputLayout>
 
 
@@ -79,21 +80,21 @@
                                 android:id="@+id/account_password_layout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                app:errorTextAppearance="@style/TextAppearance.Conversations.Design.Error"
+                                app:hintTextAppearance="@style/TextAppearance.Conversations.Design.Hint"
                                 app:passwordToggleDrawable="@drawable/visibility_toggle_drawable"
                                 app:passwordToggleEnabled="true"
-                                app:passwordToggleTint="?android:textColorSecondary"
-                                app:hintTextAppearance="@style/TextAppearance.Conversations.Design.Hint"
-                                app:errorTextAppearance="@style/TextAppearance.Conversations.Design.Error">
+                                app:passwordToggleTint="?android:textColorSecondary">
 
                                 <eu.siacs.conversations.ui.widget.TextInputEditText
                                     android:id="@+id/account_password"
+                                    style="@style/Widget.Conversations.EditText"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentTop="true"
                                     android:hint="@string/password"
                                     android:inputType="textPassword"
-                                    android:textColor="?attr/edit_text_color"
-                                    style="@style/Widget.Conversations.EditText"/>
+                                    android:textColor="@color/white70" />
                             </android.support.design.widget.TextInputLayout>
 
                             <CheckBox
@@ -102,29 +103,33 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="@string/register_account"/>
+                                android:text="@string/register_account"
+                                android:textColor="@color/white70"
+                                android:textColorHint="@color/white70" />
                         </LinearLayout>
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/os_optimization"
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:background="@color/bluemain"
                     android:visibility="gone">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@color/bluemain"
                             android:orientation="vertical"
                             android:padding="@dimen/card_padding_regular">
 
@@ -132,34 +137,37 @@
                                 android:id="@+id/os_optimization_headline"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:background="@color/bluemain"
                                 android:text="@string/battery_optimizations_enabled"
-                                android:textAppearance="@style/TextAppearance.Conversations.Title"/>
+                                android:textAppearance="@style/TextAppearance.Conversations.Title" />
 
                             <TextView
                                 android:id="@+id/os_optimization_body"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
+                                android:background="@color/bluemain"
                                 android:text="@string/battery_optimizations_enabled_explained"
-                                android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                android:textAppearance="@style/TextAppearance.Conversations.Body1" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/bluemain"
                             android:layout_gravity="right"
                             android:gravity="right">
 
                             <Button
                                 android:id="@+id/os_optimization_disable"
-                                style="@style/Widget.Conversations.Button.Borderless"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:background="@color/bluemain"
                                 android:minWidth="0dp"
                                 android:paddingLeft="16dp"
                                 android:paddingRight="16dp"
                                 android:text="@string/disable"
-                                android:textColor="?colorAccent"/>
+                                android:textColor="?colorAccent" />
                         </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -169,44 +177,50 @@
                     android:id="@+id/stats"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:background="@color/bluemain"
                     android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/bluemain"
                         android:orientation="vertical"
                         android:padding="@dimen/card_padding_regular">
 
                         <TableLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/bluemain"
                             android:shrinkColumns="0"
                             android:stretchColumns="1">
 
                             <TableRow
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@color/bluemain"
                                 tools:ignore="UselessParent">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:background="@color/bluemain"
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_session_established"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
 
                                 <TextView
                                     android:id="@+id/session_est"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
+                                    android:background="@color/bluemain"
                                     android:paddingLeft="4dp"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
                             </TableRow>
 
                         </TableLayout>
@@ -215,6 +229,7 @@
                             android:id="@+id/server_info_more"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/bluemain"
                             android:shrinkColumns="0"
                             android:stretchColumns="1"
                             android:visibility="gone">
@@ -226,19 +241,21 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:background="@color/bluemain"
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_pep"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
 
                                 <TextView
                                     android:id="@+id/server_info_pep"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
+                                    android:background="@color/bluemain"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                                    tools:ignore="RtlHardcoded"/>
+                                    tools:ignore="RtlHardcoded" />
                             </TableRow>
 
                             <TableRow
@@ -251,16 +268,17 @@
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_blocking"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
 
                                 <TextView
                                     android:id="@+id/server_info_blocking"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
+                                    android:background="@color/bluemain"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                                    tools:ignore="RtlHardcoded"/>
+                                    tools:ignore="RtlHardcoded" />
                             </TableRow>
 
                             <TableRow
@@ -273,16 +291,17 @@
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_stream_management"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
 
                                 <TextView
                                     android:id="@+id/server_info_sm"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
+                                    android:background="@color/bluemain"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                                    tools:ignore="RtlHardcoded"/>
+                                    tools:ignore="RtlHardcoded" />
                             </TableRow>
 
                             <TableRow
@@ -295,16 +314,17 @@
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_roster_version"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
 
                                 <TextView
                                     android:id="@+id/server_info_roster_version"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
+                                    android:background="@color/bluemain"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                                    tools:ignore="RtlHardcoded"/>
+                                    tools:ignore="RtlHardcoded" />
                             </TableRow>
 
                             <TableRow
@@ -317,16 +337,17 @@
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_carbon_messages"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
 
                                 <TextView
                                     android:id="@+id/server_info_carbons"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
+                                    android:background="@color/bluemain"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                                    tools:ignore="RtlHardcoded"/>
+                                    tools:ignore="RtlHardcoded" />
                             </TableRow>
 
                             <TableRow
@@ -339,16 +360,17 @@
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_mam"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
 
                                 <TextView
                                     android:id="@+id/server_info_mam"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
+                                    android:background="@color/bluemain"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                                    tools:ignore="RtlHardcoded"/>
+                                    tools:ignore="RtlHardcoded" />
                             </TableRow>
 
                             <TableRow
@@ -361,22 +383,24 @@
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_csi"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
 
                                 <TextView
                                     android:id="@+id/server_info_csi"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
+                                    android:background="@color/bluemain"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                                    tools:ignore="RtlHardcoded"/>
+                                    tools:ignore="RtlHardcoded" />
                             </TableRow>
 
                             <TableRow
                                 android:id="@+id/push_row"
                                 android:layout_width="fill_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:background="@color/bluemain">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -384,15 +408,16 @@
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_push"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
 
                                 <TextView
                                     android:id="@+id/server_info_push"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
+                                    android:background="@color/bluemain"
                                     android:paddingLeft="4dp"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
                             </TableRow>
 
                             <TableRow
@@ -406,28 +431,30 @@
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_http_upload"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
 
                                 <TextView
                                     android:id="@+id/server_info_http_upload"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
+                                    android:background="@color/bluemain"
                                     android:paddingLeft="4dp"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1" />
                             </TableRow>
                         </TableLayout>
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="8dp"/>
+                            android:layout_height="8dp" />
 
                         <RelativeLayout
                             android:id="@+id/your_name_box"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:visibility="gone"
-                            android:layout_marginTop="24dp">
+                            android:layout_marginTop="24dp"
+                            android:background="@color/bluemain"
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -441,15 +468,17 @@
                                     android:id="@+id/your_name"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:background="@color/bluemain"
                                     android:text="@string/no_name_set_instructions"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Body1.Tertiary"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1.Tertiary" />
 
                                 <TextView
                                     android:id="@+id/your_name_desc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:background="@color/bluemain"
                                     android:text="@string/your_name"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Caption"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Caption" />
                             </LinearLayout>
 
                             <ImageButton
@@ -462,14 +491,15 @@
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 android:padding="@dimen/image_button_padding"
                                 android:src="?attr/icon_edit_body"
-                                android:visibility="visible"/>
+                                android:visibility="visible" />
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/pgp_fingerprint_box"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="16dp">
+                            android:layout_marginTop="16dp"
+                            android:background="@color/bluemain">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -483,14 +513,16 @@
                                     android:id="@+id/pgp_fingerprint"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Fingerprint"/>
+                                    android:background="@color/bluemain"
+                                    android:textAppearance="@style/TextAppearance.Conversations.Fingerprint" />
 
                                 <TextView
                                     android:id="@+id/pgp_fingerprint_desc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:background="@color/bluemain"
                                     android:text="@string/openpgp_key_id"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Caption"/>
+                                    android:textAppearance="@style/TextAppearance.Conversations.Caption" />
                             </LinearLayout>
 
                             <ImageButton
@@ -503,14 +535,15 @@
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 android:padding="@dimen/image_button_padding"
                                 android:src="?attr/icon_remove"
-                                android:visibility="visible"/>
+                                android:visibility="visible" />
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/axolotl_fingerprint_box"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="16dp">
+                            android:layout_marginTop="16dp"
+                            android:background="@color/bluemain">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -524,17 +557,20 @@
                                     android:id="@+id/axolotl_fingerprint"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Fingerprint"/>
+                                    android:background="@color/bluemain"
+                                    android:textAppearance="@style/TextAppearance.Conversations.Fingerprint" />
 
                                 <TextView
                                     android:id="@+id/own_fingerprint_desc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textAppearance="@style/TextAppearance.Conversations.Caption"/>
+                                    android:background="@color/bluemain"
+                                    android:textAppearance="@style/TextAppearance.Conversations.Caption" />
                             </LinearLayout>
 
                             <LinearLayout
                                 android:id="@+id/axolotl_actions"
+
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
@@ -550,7 +586,7 @@
                                     android:contentDescription="@string/copy_omemo_clipboard_description"
                                     android:padding="@dimen/image_button_padding"
                                     android:src="?attr/icon_copy"
-                                    android:visibility="visible"/>
+                                    android:visibility="visible" />
 
                                 <ImageButton
                                     android:id="@+id/action_regenerate_axolotl_key"
@@ -561,7 +597,7 @@
                                     android:contentDescription="@string/regenerate_omemo_key"
                                     android:padding="@dimen/image_button_padding"
                                     android:src="?attr/icon_refresh"
-                                    android:visibility="gone"/>
+                                    android:visibility="gone" />
 
                             </LinearLayout>
                         </RelativeLayout>
@@ -572,15 +608,17 @@
                     android:id="@+id/other_device_keys_card"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:background="@color/bluemain"
                     android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/bluemain"
                         android:orientation="vertical"
                         android:padding="@dimen/card_padding_list">
 
@@ -589,14 +627,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/list_padding"
+                            android:background="@color/bluemain"
                             android:text="@string/other_devices"
-                            android:textAppearance="@style/TextAppearance.Conversations.Title"/>
+                            android:textAppearance="@style/TextAppearance.Conversations.Title" />
 
                         <LinearLayout
                             android:id="@+id/other_device_keys"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"/>
+                            android:background="@color/bluemain"
+                            android:orientation="vertical" />
 
                         <Button
                             android:id="@+id/clear_devices"
@@ -604,8 +644,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
+                            android:background="@color/bluemain"
                             android:text="@string/clear_other_devices"
-                            android:textColor="?colorAccent"/>
+                            android:textColor="?colorAccent" />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
             </LinearLayout>
@@ -627,7 +668,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/cancel"/>
+                android:background="@color/bluemainlight"
+                android:text="@string/cancel"
+                android:textColor="@color/white87" />
 
             <View
                 android:layout_width="1dp"
@@ -642,8 +685,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/bluemainlight"
                 android:enabled="false"
-                android:text="@string/save"/>
+                android:text="@string/save"
+                android:textColor="@color/white87" />
         </LinearLayout>
 
     </RelativeLayout>

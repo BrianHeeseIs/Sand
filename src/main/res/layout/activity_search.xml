@@ -47,7 +47,7 @@
             android:background="?attr/activity_background_search"
             android:divider="@android:color/transparent"
             android:dividerHeight="0dp"
-            android:listSelector="@android:color/transparent"
+            android:listSelector="@color/bluemainlight"
             android:stackFromBottom="true"/>
     </LinearLayout>
 </layout>

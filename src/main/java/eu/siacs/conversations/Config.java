@@ -34,7 +34,7 @@ public final class Config {
 
     public static final String LOGTAG = BuildConfig.LOGTAG;
 
-    public static final Jid BUG_REPORTS = Jid.of("bugs@conversations.im");
+    public static final Jid BUG_REPORTS = Jid.of("bugs@sand.chat");
 
 
     public static final String DOMAIN_LOCK = "";

@@ -529,7 +529,7 @@
   <string name="share_uri_with">Megosztás URI-ként</string>
   <string name="welcome_text_quicksy"><![CDATA[A Quicksy a népszerű Conversations XMPP kliens mellékhajtása automatikus kapcsolat felfedezéssel.<br><br>Regisztráljon a telefonszámával, és a Quicksy automatikusan – a címjegyzékében szereplő telefonszámok alapján – jelzi a lehetséges kapcsolatokat.<br><br>A regisztrációval elfogadja az<a href="https://quicksy.im/#privacy">adatvédelmi irányelveinket</a>.]]></string>
   <string name="agree_and_continue">Egyetért &amp; folytatás</string>
-  <string name="magic_create_text">Végigvezetjük a conversations.im-en való fiók létrehozás folyamatán.¹\nHa a conversations.im-et választja szolgáltatójának, akkor képes lesz kommunikálni a más szolgáltatóknál lévő felhasználókkal, ha megadja nekik a teljes XMPP címét.</string>
+  <string name="magic_create_text">Végigvezetjük aSand Chat TOR server-en való fiók létrehozás folyamatán.¹\nHa aSand Chat TOR server-et választja szolgáltatójának, akkor képes lesz kommunikálni a más szolgáltatóknál lévő felhasználókkal, ha megadja nekik a teljes XMPP címét.</string>
   <string name="your_full_jid_will_be">A teljes XMPP címe ez lesz: %s</string>
   <string name="create_account">Fiók létrehozása</string>
   <string name="use_own_provider">Saját szolgáltató használata</string>
