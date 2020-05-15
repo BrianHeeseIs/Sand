@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/tab_layout"
-            android:background="?attr/color_background_overlay"/>
+            android:background="@color/transparent"/>
 
 
         <com.leinardi.android.speeddial.SpeedDialView

@@ -49,6 +49,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8sp"
                                 android:text="@string/error_trustkeys_title"
+                                android:background="?color_background_secondary"
                                 android:textAppearance="@style/TextAppearance.Conversations.Title" />
 
                             <TextView

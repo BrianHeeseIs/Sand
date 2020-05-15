@@ -22,7 +22,7 @@
                 android:layout_above="@+id/linearLayout"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:background="#15151C">
+                android:background="?attr/color_background_primary">
 
                 <ImageView
                     android:id="@+id/imageView6"
