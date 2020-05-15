@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/button_bar"
             android:layout_below="@id/toolbar"
-            android:background="@color/bluemain">
+            android:background="?color_background_primary">
 
             <LinearLayout
                 android:id="@+id/account_main_layout"
@@ -37,7 +37,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/bluemain">
+                        android:background="?color_background_primary">
 
                         <com.makeramen.roundedimageview.RoundedImageView
                             android:id="@+id/avater"
@@ -55,6 +55,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_toRightOf="@+id/avater"
+                            android:background="?color_background_primary"
                             android:orientation="vertical">
 
                             <android.support.design.widget.TextInputLayout
@@ -118,7 +119,7 @@
                     android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:background="@color/bluemain"
+                    android:background="#15151C"
                     android:visibility="gone">
 
                     <LinearLayout
@@ -129,7 +130,7 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@color/bluemain"
+                            android:background="#15151C"
                             android:orientation="vertical"
                             android:padding="@dimen/card_padding_regular">
 
@@ -137,7 +138,7 @@
                                 android:id="@+id/os_optimization_headline"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@color/bluemain"
+                                android:background="#15151C"
                                 android:text="@string/battery_optimizations_enabled"
                                 android:textAppearance="@style/TextAppearance.Conversations.Title" />
 
@@ -146,7 +147,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:background="@color/bluemain"
+                                android:background="#15151C"
                                 android:text="@string/battery_optimizations_enabled_explained"
                                 android:textAppearance="@style/TextAppearance.Conversations.Body1" />
                         </LinearLayout>
@@ -154,7 +155,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/bluemain"
+                            android:background="#15151C"
                             android:layout_gravity="right"
                             android:gravity="right">
 
@@ -162,7 +163,7 @@
                                 android:id="@+id/os_optimization_disable"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@color/bluemain"
+                                android:background="#15151C"
                                 android:minWidth="0dp"
                                 android:paddingLeft="16dp"
                                 android:paddingRight="16dp"
@@ -181,33 +182,33 @@
                     android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:background="@color/bluemain"
+                    android:background="#15151C"
                     android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/bluemain"
+                        android:background="#15151C"
                         android:orientation="vertical"
                         android:padding="@dimen/card_padding_regular">
 
                         <TableLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/bluemain"
+                            android:background="#15151C"
                             android:shrinkColumns="0"
                             android:stretchColumns="1">
 
                             <TableRow
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/bluemain"
+                                android:background="#15151C"
                                 tools:ignore="UselessParent">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_session_established"
@@ -218,7 +219,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1" />
                             </TableRow>
@@ -229,7 +230,7 @@
                             android:id="@+id/server_info_more"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/bluemain"
+                            android:background="#15151C"
                             android:shrinkColumns="0"
                             android:stretchColumns="1"
                             android:visibility="gone">
@@ -241,7 +242,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:ellipsize="end"
                                     android:singleLine="true"
                                     android:text="@string/server_info_pep"
@@ -252,7 +253,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
                                     tools:ignore="RtlHardcoded" />
@@ -275,7 +276,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
                                     tools:ignore="RtlHardcoded" />
@@ -298,7 +299,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
                                     tools:ignore="RtlHardcoded" />
@@ -321,7 +322,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
                                     tools:ignore="RtlHardcoded" />
@@ -344,7 +345,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
                                     tools:ignore="RtlHardcoded" />
@@ -367,7 +368,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
                                     tools:ignore="RtlHardcoded" />
@@ -390,7 +391,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1"
                                     tools:ignore="RtlHardcoded" />
@@ -400,7 +401,7 @@
                                 android:id="@+id/push_row"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/bluemain">
+                                android:background="#15151C">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -415,7 +416,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1" />
                             </TableRow>
@@ -438,7 +439,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:paddingLeft="4dp"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1" />
                             </TableRow>
@@ -453,7 +454,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginTop="24dp"
-                            android:background="@color/bluemain"
+                            android:background="#15151C"
                             android:visibility="gone">
 
                             <LinearLayout
@@ -468,7 +469,7 @@
                                     android:id="@+id/your_name"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:text="@string/no_name_set_instructions"
                                     android:textAppearance="@style/TextAppearance.Conversations.Body1.Tertiary" />
 
@@ -476,7 +477,7 @@
                                     android:id="@+id/your_name_desc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:text="@string/your_name"
                                     android:textAppearance="@style/TextAppearance.Conversations.Caption" />
                             </LinearLayout>
@@ -499,7 +500,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginTop="16dp"
-                            android:background="@color/bluemain">
+                            android:background="#15151C">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -513,14 +514,14 @@
                                     android:id="@+id/pgp_fingerprint"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:textAppearance="@style/TextAppearance.Conversations.Fingerprint" />
 
                                 <TextView
                                     android:id="@+id/pgp_fingerprint_desc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:text="@string/openpgp_key_id"
                                     android:textAppearance="@style/TextAppearance.Conversations.Caption" />
                             </LinearLayout>
@@ -543,7 +544,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginTop="16dp"
-                            android:background="@color/bluemain">
+                            android:background="#15151C">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -557,14 +558,14 @@
                                     android:id="@+id/axolotl_fingerprint"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:textAppearance="@style/TextAppearance.Conversations.Fingerprint" />
 
                                 <TextView
                                     android:id="@+id/own_fingerprint_desc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/bluemain"
+                                    android:background="#15151C"
                                     android:textAppearance="@style/TextAppearance.Conversations.Caption" />
                             </LinearLayout>
 
@@ -612,13 +613,13 @@
                     android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:background="@color/bluemain"
+                    android:background="#15151C"
                     android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/bluemain"
+                        android:background="#15151C"
                         android:orientation="vertical"
                         android:padding="@dimen/card_padding_list">
 
@@ -627,7 +628,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/list_padding"
-                            android:background="@color/bluemain"
+                            android:background="#15151C"
                             android:text="@string/other_devices"
                             android:textAppearance="@style/TextAppearance.Conversations.Title" />
 
@@ -635,7 +636,7 @@
                             android:id="@+id/other_device_keys"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/bluemain"
+                            android:background="#15151C"
                             android:orientation="vertical" />
 
                         <Button
@@ -644,7 +645,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:background="@color/bluemain"
+                            android:background="#15151C"
                             android:text="@string/clear_other_devices"
                             android:textColor="?colorAccent" />
                     </LinearLayout>
@@ -668,7 +669,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/bluemainlight"
+                android:background="?color_background_secondary"
                 android:text="@string/cancel"
                 android:textColor="@color/white87" />
 
@@ -685,7 +686,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/bluemainlight"
+                android:background="?color_background_secondary"
                 android:enabled="false"
                 android:text="@string/save"
                 android:textColor="@color/white87" />

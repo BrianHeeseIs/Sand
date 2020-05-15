@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bluemain"
+    android:background="?color_background_primary"
     android:orientation="vertical"
     android:paddingLeft="?attr/dialog_horizontal_padding"
     android:paddingTop="?attr/dialog_vertical_padding"
@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/i_followed_this_link_from_a_trusted_source" />
+        android:text="@string/i_followed_this_link_from_a_trusted_source"
+        android:textColor="@color/texthint" />
 
 </LinearLayout>

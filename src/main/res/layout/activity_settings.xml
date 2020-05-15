@@ -12,5 +12,5 @@
         android:alwaysDrawnWithCache="false"
         android:animateLayoutChanges="false"
         android:animationCache="false"
-        android:background="@color/bluemain" />
+        android:background="?color_background_primary" />
 </LinearLayout>

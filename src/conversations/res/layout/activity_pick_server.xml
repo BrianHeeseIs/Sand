@@ -25,7 +25,7 @@
                     android:layout_above="@+id/linearLayout"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
-                    android:background="@color/bluemain">
+                    android:background="?attr/color_background_primary">
 
                     <ImageView
                         android:id="@+id/imageView6"
@@ -68,7 +68,7 @@
                         android:layout_marginTop="8dp"
                         android:text="@string/server_select_text"
                         android:textAppearance="@style/TextAppearance.Conversations.Body1"
-                        android:textColor="#FDFDFD" />
+                        android:textColor="#C5C2C2" />
 
                     <Button
                         android:id="@+id/use_cim"
@@ -88,7 +88,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:text="@string/use_own_provider"
-                        android:textColor="@color/telegram_blue_dark" />
+                        android:textColor="@color/telegram_blue" />
                 </LinearLayout>
 
             </RelativeLayout>

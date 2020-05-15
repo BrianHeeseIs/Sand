@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bluemain"
+    android:background="?color_background_primary"
     android:orientation="vertical"
     android:paddingTop="8dp">
 
@@ -10,5 +10,5 @@
         android:id="@+id/field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bluemainlight" />
+        android:background="?color_background_secondary" />
 </LinearLayout>

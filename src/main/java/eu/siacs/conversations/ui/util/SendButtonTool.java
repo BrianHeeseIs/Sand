@@ -90,7 +90,7 @@ public class SendButtonTool {
 					case XA:
 					case DND:
 					default:
-						return getThemeResource(activity, R.attr.ic_send_text_blue, R.drawable.ic_send_text_telegram_blue);
+						return getThemeResource(activity, R.attr.ic_send_text_blue, R.drawable.ic_send_text_offline_white);
 				}
 			case RECORD_VIDEO:
 				switch (status) {

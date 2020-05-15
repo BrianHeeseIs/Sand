@@ -10,7 +10,7 @@
             android:id="@+id/media"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bluemainlight"
+            android:background="?color_background_secondary"
             android:scaleType="centerInside" />
     </eu.siacs.conversations.ui.widget.SquareFrameLayout>
 </layout>

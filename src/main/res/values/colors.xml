@@ -39,11 +39,11 @@
 
 	<color name="blue500">#517CA2</color>
 
- 	<!-- Custom Colors for Sand -->
+	<!-- Custom Colors for Sand -->
 	<color name="dark_blue">#517CA2</color>
 	<color name="dark_blue_dark">@color/bluemain</color>
-    <color name="telegram_blue">#517CA2</color>
-    <color name="telegram_blue_dark">#2B2B34</color>
+	<color name="telegram_blue">#517CA2</color>
+	<color name="telegram_blue_dark">#2B2B34</color>
 	<color name="menubackgroundfix">#2B2B34</color>
 	<color name="telegram_blue_light">#517CA2</color>
 
@@ -51,6 +51,9 @@
 	<color name="newgreylight">#2B2B34</color>
 	<color name="newblue">#517CA2</color>
 	<color name="newwhitetext">#FDFDFD</color>
+	<color name="texthint">#AEAEAE</color>
+	<color name="transparent">#00000000</color>
+
 
 	<color name="conversation_background">#D1D8E0</color>
 </resources>
