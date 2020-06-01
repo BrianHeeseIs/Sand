@@ -362,8 +362,6 @@
     <string name="password_changed">Password changed!</string>
     <string name="could_not_change_password">Could not change password</string>
     <string name="change_password">Change password</string>
-    <string name="change_pin">Change pin</string>
-    <string name="change_pin_summary">Change lock pin. You can set a new password</string>
     <string name="current_password">Current password</string>
     <string name="new_password">New password</string>
     <string name="password_should_not_be_empty">Password should not be empty</string>

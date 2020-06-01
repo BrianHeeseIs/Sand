@@ -23,7 +23,6 @@ import static eu.siacs.conversations.utils.PermissionUtils.writeGranted;
 public class WelcomeActivity extends XmppActivity {
 
     private static final int REQUEST_IMPORT_BACKUP = 0x63fb;
-    public static final String LOCKED = "locked";
 
     @Override
     protected void refreshUiReal() {
