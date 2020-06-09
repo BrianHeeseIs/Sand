@@ -35,6 +35,7 @@
         android:id="@+id/action_search"
         android:icon="?attr/icon_search"
         android:title="@string/search"
+        android:background="?attr/color_background_secondary"
         app:actionLayout="@layout/actionview_search"
         app:showAsAction="always"/>
 </menu>

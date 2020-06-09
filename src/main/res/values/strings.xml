@@ -540,7 +540,7 @@
     <string name="install_orbot">Install Orbot</string>
     <string name="start_orbot">Start Orbot</string>
     <string name="use_own_provider">Use my own provider</string>
-    <string name="pick_your_username">Pick your username</string>
+    <string name="pick_your_username">Choose your username</string>
     <string name="pref_manually_change_presence">Manage availability manually</string>
     <string name="pref_manually_change_presence_summary">Set your availability when editing your status message.</string>
     <string name="status_message">Status message</string>
@@ -565,8 +565,8 @@
     <string name="pref_privacy">Privacy</string>
     <string name="pref_theme_options">Theme</string>
     <string name="pref_theme_options_summary">Select the color palette</string>
-    <string name="pref_theme_light">Light theme</string>
-    <string name="pref_theme_dark">Dark theme</string>
+    <string name="pref_theme_light">Dark theme</string>
+    <string name="pref_theme_dark">Blue theme</string>
     <string name="pref_use_green_background">Green Background</string>
     <string name="pref_use_green_background_summary">Use green background for received messages</string>
     <string name="unable_to_connect_to_keychain">Unable to connect to OpenKeychain</string>

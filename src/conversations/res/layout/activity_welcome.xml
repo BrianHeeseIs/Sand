@@ -20,6 +20,23 @@
                 android:layout_height="wrap_content"
                 android:background="?attr/color_background_primary">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/linearLayout"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="false"
+                   android:background="?color_background_primary">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="?color_background_primary"
+                        android:src="@drawable/main_logo" />
+                </RelativeLayout>
+
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
@@ -27,6 +44,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentBottom="true"
+                    android:background="?color_background_primary"
                     android:minHeight="256dp"
                     android:orientation="vertical"
                     android:paddingLeft="16dp"
@@ -42,49 +60,38 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/welcome_header"
-                        android:textAppearance="@style/TextAppearance.Conversations.Title" />
+                        android:textAppearance="@style/TextAppearance.Conversations.Title"
+                        android:textColor="@color/blue500" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:autoText="false"
                         android:text="@string/do_you_have_an_account"
-                        android:textAppearance="@style/TextAppearance.Conversations.Body1" />
+                        android:textAppearance="@style/TextAppearance.Conversations.Body1"
+                        android:textColor="#C5C2C2" />
 
                     <Button
                         android:id="@+id/register_new_account"
-                        style="@style/Widget.Conversations.Button.Borderless"
+                        style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right"
+                        android:layout_gravity="center|right"
                         android:text="@string/create_new_account"
-                        android:textColor="?colorAccent" />
+                        android:textColor="@color/blue500" />
 
                     <Button
                         android:id="@+id/use_existing"
                         style="@style/Widget.Conversations.Button.Borderless"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right"
+                        android:layout_gravity="center|right"
                         android:text="@string/i_already_have_an_account"
-                        android:textColor="?android:textColorSecondary" />
+                        android:textColor="@color/blue500" />
+
                 </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_above="@+id/linearLayout"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:padding="8dp"
-                        android:src="@drawable/main_logo" />
-                </RelativeLayout>
             </RelativeLayout>
         </ScrollView>
     </LinearLayout>

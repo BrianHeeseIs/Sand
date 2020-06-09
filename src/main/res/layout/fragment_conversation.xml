@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/color_background_secondary">
+        android:background="?color_background_secondary">
 
         <ListView
             android:id="@+id/messages_view"
@@ -16,13 +16,16 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:background="?attr/color_background_secondary"
+            android:background="?color_background_primary"
             android:divider="@null"
             android:dividerHeight="0dp"
-            android:listSelector="@android:color/transparent"
+            android:listSelector="?color_background_primary"
+            android:scrollbarThumbHorizontal="?color_background_primary"
+            android:scrollbarThumbVertical="?color_background_primary"
             android:stackFromBottom="true"
             android:transcriptMode="normal"
-            tools:listitem="@layout/message_sent"></ListView>
+            tools:listitem="@layout/message_sent">
+        </ListView>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/scroll_to_bottom_button"
@@ -60,7 +63,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:background="?attr/color_background_primary">
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="2dp"
+            android:background="?color_background_secondary">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -69,6 +75,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_toStartOf="@+id/textSendButton"
                 android:layout_toLeftOf="@+id/textSendButton"
+                android:background="?color_background_secondary"
                 android:orientation="vertical">
 
                 <TextView
@@ -84,7 +91,7 @@
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/media_preview"
-                    android:layout_width="wrap_content"
+                    android:layout_width="5dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="8dp"
@@ -99,15 +106,18 @@
                     android:id="@+id/textinput"
                     style="@style/Widget.Conversations.EditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/color_background_primary"
-                    android:ems="10"
+                    android:layout_height="match_parent"
+                    android:background="?color_background_secondary"
+                    android:clickable="false"
+                    android:ems="0"
                     android:imeOptions="flagNoExtractUi|actionSend"
                     android:inputType="textShortMessage|textMultiLine|textCapSentences"
                     android:maxLines="8"
                     android:minHeight="48dp"
                     android:minLines="1"
-                    android:padding="8dp">
+                    android:padding="0dp"
+                    android:paddingLeft="0dp"
+                    android:textColorHighlight="@color/texthint">
 
                     <requestFocus />
                 </eu.siacs.conversations.ui.widget.EditMessage>
@@ -116,14 +126,19 @@
 
             <ImageButton
                 android:id="@+id/textSendButton"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textSendButton"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="?attr/color_background_primary"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="-1dp"
+                android:layout_marginRight="-1dp"
+                android:background="?color_background_secondary"
                 android:contentDescription="@string/send_message"
-                android:src="@drawable/ic_send_text_telegram_blue" />
+                android:paddingRight="10dp"
+                android:src="@drawable/ic_send_text_offline_white" />
         </RelativeLayout>
 
         <RelativeLayout

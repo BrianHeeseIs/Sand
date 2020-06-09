@@ -161,7 +161,7 @@ public class MediaAdapter extends RecyclerView.Adapter<MediaAdapter.MediaViewHol
                 imageView.setImageBitmap(bm);
                 imageView.setBackgroundColor(0x00000000);
             } else {
-                imageView.setBackgroundColor(0xff333333);
+                imageView.setBackgroundColor(0xff152742);
                 imageView.setImageDrawable(null);
                 final BitmapWorkerTask task = new BitmapWorkerTask(mediaSize, imageView);
                 final AsyncDrawable asyncDrawable = new AsyncDrawable(activity.getResources(), null, task);

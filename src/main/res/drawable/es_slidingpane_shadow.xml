@@ -3,7 +3,7 @@
 
     <gradient
         android:endColor="@color/black12"
-        android:startColor="@android:color/transparent" />
+        android:startColor="@color/bluemainlight" />
 
     <size
         android:height="0.5dp"
