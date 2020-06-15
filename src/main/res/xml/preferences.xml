@@ -214,6 +214,10 @@
             <PreferenceCategory
                 android:key="security_options"
                 android:title="@string/pref_security_settings">
+                <Preference
+                    android:key="change_pin_pref"
+                    android:summary="@string/change_pin_summary"
+                    android:title="@string/change_pin" />
                 <CheckBoxPreference
                     android:defaultValue="@bool/btbv"
                     android:key="btbv"

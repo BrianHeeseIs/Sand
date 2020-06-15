@@ -229,6 +229,11 @@ public class SettingsActivity extends XmppActivity implements
 			});
 		}
 
+		Preference changePin = mSettingsFragment.findPreference("change_pin_pref");
+		if (changePin != null) {
+			changePin.setOnPreferenceClickListener(preference -> changePin());
+		}
+
 		if (Config.ONLY_INTERNAL_STORAGE) {
 			final Preference cleanCachePreference = mSettingsFragment.findPreference("clean_cache");
 			if (cleanCachePreference != null) {
@@ -276,6 +281,11 @@ public class SettingsActivity extends XmppActivity implements
 		Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
 		intent.setData(Uri.parse("package:" + getPackageName()));
 		startActivity(intent);
+		return true;
+	}
+
+	private boolean changePin() {
+		startActivity(new Intent(this, ChangePinActivity.class));
 		return true;
 	}
 

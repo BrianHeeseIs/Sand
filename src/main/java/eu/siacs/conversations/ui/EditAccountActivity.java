@@ -1208,6 +1208,7 @@ public class EditAccountActivity extends OmemoActivity implements OnAccountUpdat
 
                         if (xmppConnectionServiceBound) {
                             xmppConnectionService.sendCreateAccountWithCaptchaPacket(account, id, data);
+                            startActivity(new Intent(this, PinActivity.class));
                         }
                     });
             builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> {

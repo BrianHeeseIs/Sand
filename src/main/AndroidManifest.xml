@@ -283,6 +283,15 @@
             android:name=".ui.MucUsersActivity"
             android:label="@string/group_chat_members" />
         <activity android:label="@string/discover_channels" android:name=".ui.ChannelDiscoveryActivity"/>
+        <activity
+            android:name=".ui.PinActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SandTheme.Dark" />
+        <activity
+            android:name=".ui.ChangePinActivity"
+            android:parentActivityName=".ui.ConversationsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SandTheme.Dark" />
     </application>
 
 </manifest>
