@@ -138,7 +138,8 @@
                 android:background="?color_background_secondary"
                 android:contentDescription="@string/send_message"
                 android:paddingRight="10dp"
-                android:src="@drawable/ic_send_text_offline_white" />
+                android:src="@drawable/ic_send_text_offline_white"
+                tools:ignore="NotSibling" />
         </RelativeLayout>
 
         <RelativeLayout
