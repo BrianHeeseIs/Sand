@@ -4,7 +4,7 @@
     android:id="@+id/activity_toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/bluemainlight"
+    android:background="?color_background_secondary"
     android:elevation="@dimen/toolbar_elevation"
     android:minHeight="?attr/actionBarSize"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"

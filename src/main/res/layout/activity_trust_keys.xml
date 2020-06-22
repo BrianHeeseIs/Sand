@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/button_bar"
             android:layout_below="@id/toolbar"
-            android:background="@color/bluemain">
+            android:background="?color_background_primary">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -153,7 +153,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/bluemainlight"
+                android:background="?color_background_secondary"
                 android:text="@string/cancel"
                 android:textColor="@color/white87" />
 
@@ -170,7 +170,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/bluemainlight"
+                android:background="?color_background_secondary"
                 android:enabled="true"
                 android:text="@string/done"
                 android:textColor="@color/white87" />

@@ -56,7 +56,9 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import eu.siacs.conversations.Config;
+import eu.siacs.conversations.ILockedActivity;
 import eu.siacs.conversations.R;
+import eu.siacs.conversations.SandApp;
 import eu.siacs.conversations.databinding.ActivityStartConversationBinding;
 import eu.siacs.conversations.entities.Account;
 import eu.siacs.conversations.entities.Bookmark;
@@ -81,7 +83,7 @@ import eu.siacs.conversations.xmpp.OnUpdateBlocklist;
 import eu.siacs.conversations.xmpp.XmppConnection;
 import rocks.xmpp.addr.Jid;
 
-public class StartConversationActivity extends XmppActivity implements XmppConnectionService.OnConversationUpdate, OnRosterUpdate, OnUpdateBlocklist, CreatePrivateGroupChatDialog.CreateConferenceDialogListener, JoinConferenceDialog.JoinConferenceDialogListener, SwipeRefreshLayout.OnRefreshListener, CreatePublicChannelDialog.CreatePublicChannelDialogListener {
+public class StartConversationActivity extends XmppActivity implements ILockedActivity, XmppConnectionService.OnConversationUpdate, OnRosterUpdate, OnUpdateBlocklist, CreatePrivateGroupChatDialog.CreateConferenceDialogListener, JoinConferenceDialog.JoinConferenceDialogListener, SwipeRefreshLayout.OnRefreshListener, CreatePublicChannelDialog.CreatePublicChannelDialogListener {
 
 	public static final String EXTRA_INVITE_URI = "eu.siacs.conversations.invite_uri";
 
@@ -259,6 +261,8 @@ public class StartConversationActivity extends XmppActivity implements XmppConne
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		((SandApp) this.getApplication()).resumeActivity = this;
+
 		super.onCreate(savedInstanceState);
 		this.binding = DataBindingUtil.setContentView(this, R.layout.activity_start_conversation);
 		Toolbar toolbar = (Toolbar) binding.toolbar;
