@@ -3,7 +3,7 @@
 * **Version:** 2.5.3
 * **Device:** Xiaomi Mi A1
 * **Android Version:**  Android 9 (stock)
-* **Server name:**Sand Chat TOR server, jabber.at or self hosted
+* **Server name:** conversations.im, jabber.at or self hosted
 * **Server software:** ejabberd 16.04 or prosody 0.10 (if known)
 * **Installed server modules:** Stream Managment, CSI, MAM
 * **Conversations source:** PlayStore, PlayStore Beta Channel, F-Droid, self build (latest HEAD)

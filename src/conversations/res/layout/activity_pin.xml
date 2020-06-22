@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.PinActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark_blue"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_pin_explain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tv_pin_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="18dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Enter PIN"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/tv_register_again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+        <com.andrognito.pinlockview.IndicatorDots
+            android:id="@+id/indicator_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:dotDiameter="24dp"
+            app:dotFilledBackground="@drawable/pin_filled_background">
+
+        </com.andrognito.pinlockview.IndicatorDots>
+
+        <com.andrognito.pinlockview.PinLockView
+            android:id="@+id/pinlock_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:keypadButtonSize="80dp"
+            app:keypadDeleteButtonPressedColor="@color/white"
+            app:keypadDeleteButtonSize="28dp"
+            app:keypadTextColor="@color/white"
+            app:keypadTextSize="28sp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
