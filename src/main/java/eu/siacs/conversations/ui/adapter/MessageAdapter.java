@@ -179,7 +179,7 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 		if (viewHolder.edit_indicator != null) {
 			if (message.edited()) {
 				viewHolder.edit_indicator.setVisibility(View.VISIBLE);
-				viewHolder.edit_indicator.setImageResource(darkBackground ? R.drawable.ic_mode_edit_white_18dp : R.drawable.ic_mode_edit_black_18dp);
+				viewHolder.edit_indicator.setImageResource(darkBackground ? R.drawable.ic_mode_edit_white_18dp : R.drawable.ic_mode_edit_white_18dp);
 				viewHolder.edit_indicator.setAlpha(darkBackground ? 0.7f : 0.57f);
 			} else {
 				viewHolder.edit_indicator.setVisibility(View.GONE);
@@ -271,9 +271,9 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 				}
 			}
 			if (verified) {
-				viewHolder.indicator.setImageResource(darkBackground ? R.drawable.ic_verified_user_white_18dp : R.drawable.ic_verified_user_black_18dp);
+				viewHolder.indicator.setImageResource(darkBackground ? R.drawable.ic_verified_user_white_18dp : R.drawable.ic_verified_user_white_18dp);
 			} else {
-				viewHolder.indicator.setImageResource(darkBackground ? R.drawable.ic_lock_white_18dp : R.drawable.ic_lock_black_18dp);
+				viewHolder.indicator.setImageResource(darkBackground ? R.drawable.ic_lock_white_18dp : R.drawable.ic_lock_white_18dp);
 			}
 			if (darkBackground) {
 				viewHolder.indicator.setAlpha(0.7f);
@@ -423,7 +423,7 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 			viewHolder.messageBody.setTextAppearance(getContext(), R.style.TextAppearance_Conversations_Body1);
 		}
 		viewHolder.messageBody.setHighlightColor(ContextCompat.getColor(activity, darkBackground
-				? (type == SENT || !mUseGreenBackground ? R.color.black26 : R.color.bluemain) : R.color.bluemainlight0));
+				? (type == SENT || !mUseGreenBackground ? R.color.black26 : R.color.grey800) : R.color.bluemainlight0));
 		viewHolder.messageBody.setTypeface(null, Typeface.NORMAL);
 
 		if (message.getBody() != null) {
@@ -700,7 +700,7 @@ public class MessageAdapter extends ArrayAdapter<Message> implements CopyTextVie
 			} else {
 				viewHolder.status_message.setText(DateUtils.formatDateTime(activity, message.getTimeSent(), DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
 			}
-			viewHolder.message_box.setBackgroundResource(activity.isDarkTheme() ? R.drawable.date_bubble_grey : R.drawable.date_bubble_white);
+			viewHolder.message_box.setBackgroundResource(activity.isDarkTheme() ? R.drawable.date_bubble_grey : R.drawable.date_bubble_grey);
 			return view;
 		} else if (type == STATUS) {
 			if ("LOAD_MORE".equals(message.getBody())) {

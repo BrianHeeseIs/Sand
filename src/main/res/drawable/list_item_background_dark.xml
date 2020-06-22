@@ -30,5 +30,5 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:state_activated="true"
-      android:drawable="@color/bluemain" />
+      android:drawable="@color/grey700" />
 </selector>

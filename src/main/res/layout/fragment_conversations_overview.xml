@@ -10,10 +10,10 @@
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bluemain"
+            android:background="?color_background_primary"
             android:scrollbars="vertical" />
 
-        <android.support.design.widget.FloatingActionButton
+         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             app:backgroundTint="?colorAccent"
             android:src="@drawable/ic_chat_white_24dp"
@@ -32,5 +32,6 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
             android:src="@drawable/ic_lock_white_24dp"/>
+
     </android.support.design.widget.CoordinatorLayout>
 </layout>

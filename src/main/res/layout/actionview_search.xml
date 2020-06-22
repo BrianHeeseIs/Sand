@@ -11,8 +11,9 @@
         style="@style/Widget.Conversations.SearchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?color_background_secondary"
         android:focusable="true"
         android:imeOptions="flagNoExtractUi|actionSearch"
-        android:inputType="textEmailAddress|textNoSuggestions"/>
+        android:inputType="textEmailAddress|textNoSuggestions" />
 
 </RelativeLayout>

@@ -6,7 +6,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?selectableItemBackground"
         android:padding="@dimen/list_padding">
 
         <com.makeramen.roundedimageview.RoundedImageView
@@ -17,8 +16,8 @@
             android:scaleType="centerCrop"
             app:riv_corner_radius="24dip"
             app:riv_mutate_background="true"
-            app:riv_tile_mode="repeat"
-            app:riv_oval="true" />
+            app:riv_oval="true"
+            app:riv_tile_mode="repeat" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
