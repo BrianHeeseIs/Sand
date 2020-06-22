@@ -15,7 +15,7 @@
         <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@color/bluemain">
+            android:background="?color_background_primary">
 
             <LinearLayout
                 android:id="@+id/muc_main_layout"
@@ -34,7 +34,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/bluemain"
+                        android:background="?color_background_primary"
                         android:orientation="vertical"
                         android:padding="@dimen/card_padding_regular">
 
@@ -144,7 +144,7 @@
                                         android:alpha="?attr/icon_alpha"
                                         android:background="?attr/selectableItemBackgroundBorderless"
                                         android:padding="@dimen/image_button_padding"
-                                        android:src="?attr/icon_edit_body" />
+                                        android:src="?attr/icon_edit" />
                                 </RelativeLayout>
                             </LinearLayout>
                         </RelativeLayout>
@@ -177,7 +177,7 @@
                                 android:alpha="?attr/icon_alpha"
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 android:padding="@dimen/image_button_padding"
-                                android:src="?attr/icon_settings" />
+                                android:src="@drawable/ic_settings_white_24dp" />
                         </RelativeLayout>
 
                         <TableLayout
@@ -234,14 +234,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/bluemain"
+                        android:background="?color_background_primary"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/no_users_hints"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@color/bluemain"
+                            android:background="?color_background_primary"
                             android:paddingStart="@dimen/card_padding_regular"
                             android:paddingTop="@dimen/card_padding_regular"
                             android:paddingEnd="@dimen/card_padding_regular"
@@ -255,7 +255,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="-2dp"
                             android:layout_marginEnd="-2dp"
-                            android:background="@color/bluemain"
+                            android:background="?color_background_primary"
                             android:orientation="horizontal"
                             android:paddingStart="@dimen/card_padding_regular"
                             android:paddingTop="@dimen/card_padding_regular"
@@ -304,7 +304,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/bluemain"
+                        android:background="?color_background_primary"
                         android:orientation="vertical"
                         android:padding="@dimen/card_padding_regular">
 
@@ -343,7 +343,7 @@
                                 android:alpha="?attr/icon_alpha"
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 android:padding="@dimen/image_button_padding"
-                                android:src="?attr/icon_edit_body" />
+                                android:src="?attr/icon_edit" />
                         </RelativeLayout>
 
                         <RelativeLayout

@@ -37,12 +37,12 @@
         <include
             android:id="@+id/toolbar"
             layout="@layout/activity_toolbar"
-            android:background="@color/bluemainlight" />
+            android:background="?color_background_secondary" />
 
         <FrameLayout
             android:id="@+id/main_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bluemain" />
+            android:background="?color_background_primary" />
     </LinearLayout>
 </layout>

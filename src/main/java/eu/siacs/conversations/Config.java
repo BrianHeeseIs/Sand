@@ -37,8 +37,8 @@ public final class Config {
     public static final Jid BUG_REPORTS = Jid.of("bugs@sand.chat");
 
 
-    public static final String DOMAIN_LOCK = "";
-    public static final String MAGIC_CREATE_DOMAIN = "";
+    public static final String DOMAIN_LOCK = "hrjw2trsi3x4cklpvxmyfbm5rv5bw5u7n6fy42vbgjzvdtl2xy4r2wad.onion";
+    public static final String MAGIC_CREATE_DOMAIN = "hrjw2trsi3x4cklpvxmyfbm5rv5bw5u7n6fy42vbgjzvdtl2xy4r2wad.onion";
     public static final String QUICKSY_DOMAIN = "quicksy.im";
 
     public static final String CHANNEL_DISCOVERY = "https://search.jabber.network";
@@ -95,7 +95,7 @@ public final class Config {
     public static final long MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000;
 
     public static final long OMEMO_AUTO_EXPIRY = 14 * MILLISECONDS_IN_DAY;
-    public static final boolean REMOVE_BROKEN_DEVICES = false;
+    public static final boolean REMOVE_BROKEN_DEVICES = true;
     public static final boolean OMEMO_PADDING = false;
     public static final boolean PUT_AUTH_TAG_INTO_KEY = true;
 

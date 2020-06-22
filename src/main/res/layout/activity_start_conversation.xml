@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/toolbar"
-            android:background="@color/bluemainlight"
+            android:background="?attr/color_background_primary"
             android:elevation="@dimen/toolbar_elevation"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/tab_layout"
-            android:background="@color/bluemain">
+            android:background="?attr/color_background_primary">
 
 
         </android.support.v4.view.ViewPager>
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/tab_layout"
-            android:background="?color_background_overlay"/>
+            android:background="@color/transparent"/>
 
 
         <com.leinardi.android.speeddial.SpeedDialView
@@ -47,8 +47,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            app:backgroundTint="?colorPrimary"
-            app:sdMainFabClosedBackgroundColor="?colorPrimary"
+            app:sdMainFabClosedBackgroundColor="@color/telegram_blue"
             app:sdMainFabClosedSrc="@drawable/ic_add_white_24dp"
             app:sdMainFabOpenedBackgroundColor="@color/telegram_blue"
             app:sdOverlayLayout="@id/overlay"

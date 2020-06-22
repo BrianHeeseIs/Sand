@@ -18,7 +18,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/bluemainlight"
+                android:background="?color_background_secondary"
                 android:text="@string/cancel"
                 android:textColor="@color/white87" />
 
@@ -35,7 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/bluemainlight"
+                android:background="?color_background_secondary"
                 android:text="@string/attach"
                 android:textColor="@color/white87" />
         </LinearLayout>
