@@ -391,7 +391,6 @@ public class ConversationsActivity extends XmppActivity implements ILockedActivi
             pendingViewIntent.push(intent);
             setIntent(createLauncherIntent(this));
         }
-        startActivity(new Intent(this, PinActivity.class));
     }
 
     @Override
